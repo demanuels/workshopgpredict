@@ -232,8 +232,15 @@
 
 <body>
     <h2>Glioma Clinical Trial Enrollment Predictor</h2>
+    <div class="toggle-buttons">
+        <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
+            General Recommendations for Trial Screening <span>▼</span>
+        </button>
+    </div>
+    
     <div class="container">
         <form id="predictionForm">
+            <!-- General Recommendations Button Now Above the Form -->
             
             <!-- DEMOGRAPHIC VARIABLES -->
             <div class="section-title">Demographic Variables</div>
@@ -393,9 +400,6 @@
             </button>
             <button class="toggle-button toggle-button-orange" onclick="toggleSection('patientRecommendations')">
                 Patient-Specific Recommendations <span>▼</span>
-            </button>
-            <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
-                General Recommendations for Trial Screening <span>▼</span>
             </button>
         </div>
 
