@@ -96,18 +96,32 @@
 
         /* Toggle Buttons */
         .toggle-buttons {
+            width: 100%; /* Ensure the container spans 100% width */
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Stack buttons vertically */
+            align-items: stretch; /* Ensure the buttons inside stretch to full width */
             margin-top: 20px;
         }
 
         /* General Recommendations Button (100% width) */
         .toggle-button-teal {
             width: 100%; /* Makes this button span the entire width */
+            padding: 12px;
+            background-color: #007272;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .toggle-button-teal:hover {
+            background-color: #005555;
         }
 
         .toggle-button {
-            width: 48%;
+            width: 48%; /* Adjusted width for other buttons to 48% */
             padding: 12px;
             color: white;
             border: none;
