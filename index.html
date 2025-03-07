@@ -96,16 +96,16 @@
 
         /* Toggle Buttons */
         .toggle-buttons {
-            width: 100%; /* Ensure the container spans 100% width */
+            width: 100%;
             display: flex;
             flex-direction: column; /* Stack buttons vertically */
-            align-items: stretch; /* Ensure the buttons inside stretch to full width */
+            align-items: stretch; /* Ensure buttons inside stretch to full width */
             margin-top: 20px;
         }
 
         /* General Recommendations Button (100% width) */
         .toggle-button-teal {
-            width: 100%; /* Makes this button span the entire width */
+            width: 100%; /* Ensure it spans full width */
             padding: 12px;
             background-color: #007272;
             color: white;
@@ -120,8 +120,14 @@
             background-color: #005555;
         }
 
+        /* Patient-Specific Buttons */
+        .toggle-buttons.side-by-side {
+            flex-direction: row; /* Display buttons side by side */
+            justify-content: space-between; /* Space out the buttons */
+        }
+
         .toggle-button {
-            width: 48%; /* Adjusted width for other buttons to 48% */
+            width: 48%; /* Each button takes up 48% of the container's width */
             padding: 12px;
             color: white;
             border: none;
@@ -427,7 +433,7 @@
         </div>
         
         <!-- Toggle Buttons -->
-        <div class="toggle-buttons">
+        <div class="toggle-buttons side-by-side"> <!-- Add side-by-side class -->
             <button class="toggle-button toggle-button-blue" onclick="toggleSection('impactSection')">
                 Patient-Specific Characteristics Influencing Enrollment <span>▼</span>
             </button>
