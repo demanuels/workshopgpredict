@@ -96,10 +96,8 @@
 
         /* Toggle Buttons */
         .toggle-buttons {
-            width: 100%;
-            display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            align-items: stretch; /* Ensure buttons inside stretch to full width */
+            display: block; /* Change flex to block to avoid layout conflicts */
+            width: 100%; /* Ensure full width */
             margin-top: 20px;
         }
 
@@ -257,10 +255,11 @@
 
 <body>
     <h2>Glioma Clinical Trial Enrollment Predictor</h2>
-    <div class="toggle-buttons">
-        <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
-            General Recommendations for Trial Screening <span>▼</span>
-        </button>
+    <!-- Updated .toggle-buttons container -->
+    <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
+            <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
+                General Recommendations for Trial Screening <span>▼</span>
+            </button>
     </div>
 
     <!-- General Recommendations -->
