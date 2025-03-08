@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glioma Trial Enrollment Predictor</title>
+    <title>GPREDICT: Prediction of Glioma Patients' Enrollment In Therapeutic Clinical Trials</title>
     <style>
         /* General Styling */
         body {
@@ -22,6 +22,26 @@
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
+        }
+
+        /* Title Styling */
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #052049;
+            margin-bottom: 10px;
+        }
+
+        /* Description Styling */
+        .description {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
         }
 
         /* Section Titles - UCSF Dark Blue */
@@ -254,7 +274,8 @@
 </head>
 
 <body>
-    <h2>Glioma Clinical Trial Enrollment Predictor</h2>
+    <h1 class="title">GPREDICT: Prediction of Glioma Patients' Enrollment In Therapeutic Clinical Trials</h1>
+    <p class="description">GPREDICT allows clinicians and researchers to estimate individual adult glioma patients' probability of enrolling in a therapeutic clinical trial, identify which patient characteristics most influence enrollment probability for a given patient, and generate general and patient-specific recommendations for increasing the probability of accrual.</p>
     <!-- Updated .toggle-buttons container -->
     <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
             <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
