@@ -435,59 +435,59 @@
             <p id="resultText"></p> <!-- ✅ Fixed: Probability is displayed inside the gray box -->
         </div>
         
-    <!-- General Recommendations -->
-        <div id="generalRecommendations" class="toggle-content">
-            <div class="impact-title">General Recommendations for Trial Screening</div>
-            <table class="recommendation-table">
-                <thead>
-                    <tr>
-                        <th style="color: #052049;">Screening Discussion Patterns</th>
-                        <th style="color: #C04C00;">Recommendations</th>
-                    </tr>
-                </thead>
-                <tbody id="generalRecommendationTableBody"></tbody>
-            </table>
-        </div>
     
-    <div class="container">
-        <form id="predictionForm">
-            <!-- General Recommendations Button Now Above the Form -->
-        <!-- Toggle Buttons -->
-        <div class="toggle-buttons side-by-side"> <!-- Add side-by-side class -->
-            <button class="toggle-button toggle-button-blue" onclick="toggleSection('impactSection')">
+    <div class="toggle-buttons">
+        <button class="toggle-button" onclick="toggleSection('generalRecommendations')">
+            General Recommendations for Trial Screening <span>▼</span>
+        </button>
+    </div>
+    <div id="generalRecommendations" class="toggle-content">
+        <div class="impact-title">General Recommendations for Trial Screening</div>
+        <table class="recommendation-table">
+            <thead>
+                <tr>
+                    <th>Screening Discussion Patterns</th>
+                    <th>Recommendations</th>
+                </tr>
+            </thead>
+            <tbody id="generalRecommendationTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-item">
+            <button class="toggle-button" style="background-color: #052049;" onclick="toggleSection('impactSection')">
                 Patient-Specific Characteristics Influencing Enrollment <span>▼</span>
             </button>
-            <button class="toggle-button toggle-button-orange" onclick="toggleSection('patientRecommendations')">
-                Patient-Specific Recommendations <span>▼</span>
-            </button>
-        </div>
-
-        <!-- Impact Section -->
-        <div id="impactSection" class="toggle-content">
-            <div class="impact-title">Patient-Specific Characteristics That Most Influence Enrollment Probability</div>
+            <div id="impactSection" class="toggle-content">
+                <div class="impact-title">Patient-Specific Characteristics That Most Influence Enrollment Probability</div>
                 <table class="impact-table">
                     <thead>
                         <tr>
-                            <th style="color: #052049;">Factors Increasing Enrollment Probability</th>
-                            <th style="color: #C04C00;">Factors Decreasing Enrollment Probability</th>
+                            <th>Factors Increasing Enrollment Probability</th>
+                            <th>Factors Decreasing Enrollment Probability</th>
                         </tr>
                     </thead>
                     <tbody id="impactTableBody"></tbody>
                 </table>
+            </div>
         </div>
 
-        <!-- Patient-Specific Recommendations -->
-       <div id="patientRecommendations" class="toggle-content">
-            <div class="impact-title">Patient-Specific Recommendations</div>
-            <table class="recommendation-table">
-                <thead>
-                    <tr>
-                        <th style="color: #052049;">Patient Characteristics and Context</th>
-                        <th style="color: #C04C00;">Recommendations</th>
-                    </tr>
-                </thead>
-                <tbody id="patientRecommendationTableBody"></tbody>
-            </table>
+        <div class="flex-item">
+            <button class="toggle-button" style="background-color: #C04C00;" onclick="toggleSection('patientRecommendations')">
+                Patient-Specific Recommendations <span>▼</span>
+            </button>
+            <div id="patientRecommendations" class="toggle-content">
+                <div class="impact-title">Patient-Specific Recommendations</div>
+                <table class="recommendation-table">
+                    <thead>
+                        <tr>
+                            <th>Patient Characteristics and Context</th>
+                            <th>Recommendations</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patientRecommendationTableBody"></tbody>
+                </table>
         </div>
         
     </div>
