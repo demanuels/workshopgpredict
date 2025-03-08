@@ -381,10 +381,11 @@
              </div>
  
              <div class="form-group">
-                 <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($):
-                    <a href="LINK_TO_CENSUS_DATA" target="_blank" class="tooltip">*
+                 <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($): 
+                    <span class="tooltip" onclick="toggleTooltip(event)">
+                        <a href="LINK_TO_CENSUS_DATA" target="_blank">*</a>
                         <span class="tooltiptext">Median income was derived for neighborhood Zipcode. Click the link to determine patient's neighborhood household income by zipcode.</span>
-                    </a>
+                    </span>
                 </label>
                 <input type="number" id="IncomeZip" required>
              </div>
