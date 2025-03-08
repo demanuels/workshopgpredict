@@ -138,11 +138,11 @@
              background-color: #005555;
          }
  
-         /* Patient-Specific Buttons */
-         .toggle-buttons.side-by-side {
-             flex-direction: row; /* Display buttons side by side */
-             justify-content: space-between; /* Space out the buttons */
-         }
+        /* Patient-Specific Buttons */
+        .toggle-buttons.side-by-side {
+            display: flex; /* Display buttons side by side */
+            justify-content: space-between; /* Space out the buttons */
+        }
  
          .toggle-button {
              width: 48%; /* Each button takes up 48% of the container's width */
@@ -285,17 +285,22 @@
      </div>
  
      <!-- General Recommendations -->
-         <div id="generalRecommendations" class="toggle-content">
-             <div class="impact-title">General Recommendations for Trial Screening</div>
-             <table class="recommendation-table">
-                 <thead>
-                     <tr>
-                         <th style="color: #052049;">Screening Discussion Patterns</th>
-                         <th style="color: #C04C00;">Recommendations</th>
-                     </tr>
-                 </thead>
-                 <tbody id="generalRecommendationTableBody"></tbody>
-             </table>
+         <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
+        <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
+            General Recommendations for Trial Screening <span>▼</span>
+        </button>
+    </div>
+    <div id="generalRecommendations" class="toggle-content">
+        <div class="impact-title">General Recommendations for Trial Screening</div>
+        <table class="recommendation-table">
+            <thead>
+                <tr>
+                    <th style="color: #052049;">Screening Discussion Patterns</th>
+                    <th style="color: #C04C00;">Recommendations</th>
+                </tr>
+            </thead>
+            <tbody id="generalRecommendationTableBody"></tbody>
+        </table>
          </div>
  
      <div class="container">
@@ -454,42 +459,42 @@
          </div>
  
          <!-- Toggle Buttons -->
-         <div class="toggle-buttons side-by-side"> <!-- Add side-by-side class -->
-             <button class="toggle-button toggle-button-blue" onclick="toggleSection('impactSection')">
-                 Patient-Specific Characteristics Influencing Enrollment <span>▼</span>
-             </button>
-             <button class="toggle-button toggle-button-orange" onclick="toggleSection('patientRecommendations')">
-                 Patient-Specific Recommendations <span>▼</span>
-             </button>
-         </div>
- 
-         <!-- Impact Section -->
-         <div id="impactSection" class="toggle-content">
-             <div class="impact-title">Patient-Specific Characteristics That Most Influence Enrollment Probability</div>
-                 <table class="impact-table">
-                     <thead>
-                         <tr>
-                             <th style="color: #052049;">Factors Increasing Enrollment Probability</th>
-                             <th style="color: #C04C00;">Factors Decreasing Enrollment Probability</th>
-                         </tr>
-                     </thead>
-                     <tbody id="impactTableBody"></tbody>
-                 </table>
-         </div>
- 
-         <!-- Patient-Specific Recommendations -->
+           <div class="toggle-buttons side-by-side">
+            <button class="toggle-button toggle-button-blue" onclick="toggleSection('impactSection')">
+                Patient-Specific Characteristics Influencing Enrollment <span>▼</span>
+            </button>
+            <button class="toggle-button toggle-button-orange" onclick="toggleSection('patientRecommendations')">
+                Patient-Specific Recommendations <span>▼</span>
+            </button>
+        </div>
+
+        <!-- Impact Section -->
+        <div id="impactSection" class="toggle-content">
+            <div class="impact-title">Patient-Specific Characteristics That Most Influence Enrollment Probability</div>
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th style="color: #052049;">Factors Increasing Enrollment Probability</th>
+                        <th style="color: #C04C00;">Factors Decreasing Enrollment Probability</th>
+                    </tr>
+                </thead>
+                <tbody id="impactTableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Patient-Specific Recommendations -->
         <div id="patientRecommendations" class="toggle-content">
-             <div class="impact-title">Patient-Specific Recommendations</div>
-             <table class="recommendation-table">
-                 <thead>
-                     <tr>
-                         <th style="color: #052049;">Patient Characteristics and Context</th>
-                         <th style="color: #C04C00;">Recommendations</th>
-                     </tr>
-                 </thead>
-                 <tbody id="patientRecommendationTableBody"></tbody>
-             </table>
-         </div>
+            <div class="impact-title">Patient-Specific Recommendations</div>
+            <table class="recommendation-table">
+                <thead>
+                    <tr>
+                        <th style="color: #052049;">Patient Characteristics and Context</th>
+                        <th style="color: #C04C00;">Recommendations</th>
+                    </tr>
+                </thead>
+                <tbody id="patientRecommendationTableBody"></tbody>
+            </table>
+        </div>
  
      </div>
  
