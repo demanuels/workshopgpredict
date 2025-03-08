@@ -205,9 +205,20 @@
             align-items: center;
             flex-direction: column;
         }
-         .centered-container .toggle-content {
-          width: 48%;
+        
+/* Ensure all toggle content sections have the same width */
+.toggle-content {
+    width: 100%;
+    max-width: 48%;  /* Ensure it matches the width of side-by-side sections */
+    margin: 0 auto;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #dcdcdc;
+    box-sizing: border-box;
 }
+         }
          /* Headings */
          h3 {
              color: #333;
