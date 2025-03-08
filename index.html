@@ -277,32 +277,7 @@
      <h2>Glioma Clinical Trial Enrollment Predictor</h2>
      <h1 class="title">GPREDICT: Prediction of Glioma Patients' Enrollment In Therapeutic Clinical Trials</h1>
      <p class="description">GPREDICT allows clinicians and researchers to estimate individual adult glioma patients' probability of enrolling in a therapeutic clinical trial, identify which patient characteristics most influence enrollment probability for a given patient, and generate general and patient-specific recommendations for increasing the probability of accrual.</p>
-     <!-- Updated .toggle-buttons container -->
-     <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
-             <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
-                 General Recommendations for Trial Screening <span>▼</span>
-             </button>
-     </div>
- 
-     <!-- General Recommendations -->
-         <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
-        <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
-            General Recommendations for Trial Screening <span>▼</span>
-        </button>
-    </div>
-    <div id="generalRecommendations" class="toggle-content">
-        <div class="impact-title">General Recommendations for Trial Screening</div>
-        <table class="recommendation-table">
-            <thead>
-                <tr>
-                    <th style="color: #052049;">Screening Discussion Patterns</th>
-                    <th style="color: #C04C00;">Recommendations</th>
-                </tr>
-            </thead>
-            <tbody id="generalRecommendationTableBody"></tbody>
-        </table>
-         </div>
- 
+    
      <div class="container">
          <form id="predictionForm">
              <!-- General Recommendations Button Now Above the Form -->
@@ -457,9 +432,27 @@
              <h3>Estimated Enrollment Probability:</h3>
              <p id="resultText"></p> <!-- ✅ Fixed: Probability is displayed inside the gray box -->
          </div>
- 
-         <!-- Toggle Buttons -->
-           <div class="toggle-buttons side-by-side">
+ <!-- General Recommendations -->
+        <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
+            <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
+                General Recommendations for Trial Screening <span>▼</span>
+            </button>
+        </div>
+        <div id="generalRecommendations" class="toggle-content">
+            <div class="impact-title">General Recommendations for Trial Screening</div>
+            <table class="recommendation-table">
+                <thead>
+                    <tr>
+                        <th style="color: #052049;">Screening Discussion Patterns</th>
+                        <th style="color: #C04C00;">Recommendations</th>
+                    </tr>
+                </thead>
+                <tbody id="generalRecommendationTableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Toggle Buttons -->
+        <div class="toggle-buttons side-by-side"> <!-- Add side-by-side class -->
             <button class="toggle-button toggle-button-blue" onclick="toggleSection('impactSection')">
                 Patient-Specific Characteristics Influencing Enrollment <span>▼</span>
             </button>
@@ -471,15 +464,15 @@
         <!-- Impact Section -->
         <div id="impactSection" class="toggle-content">
             <div class="impact-title">Patient-Specific Characteristics That Most Influence Enrollment Probability</div>
-            <table class="impact-table">
-                <thead>
-                    <tr>
-                        <th style="color: #052049;">Factors Increasing Enrollment Probability</th>
-                        <th style="color: #C04C00;">Factors Decreasing Enrollment Probability</th>
-                    </tr>
-                </thead>
-                <tbody id="impactTableBody"></tbody>
-            </table>
+                <table class="impact-table">
+                    <thead>
+                        <tr>
+                            <th style="color: #052049;">Factors Increasing Enrollment Probability</th>
+                            <th style="color: #C04C00;">Factors Decreasing Enrollment Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody id="impactTableBody"></tbody>
+                </table>
         </div>
 
         <!-- Patient-Specific Recommendations -->
