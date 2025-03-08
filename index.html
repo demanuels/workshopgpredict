@@ -289,7 +289,27 @@
          .recommendations {
              color: #C04C00;
          }
- 
+ .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the text */
+            left: 50%;
+            margin-left: -110px; /* Center the tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
  
      </style>
  </head>
@@ -382,7 +402,7 @@
  
              <div class="form-group">
                  <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($): 
-                    <span class="tooltip" onclick="toggleTooltip(event)">
+                    <span class="tooltip">
                         <a href="LINK_TO_CENSUS_DATA" target="_blank">*</a>
                         <span class="tooltiptext">Median income was derived for neighborhood Zipcode. Click the link to determine patient's neighborhood household income by zipcode.</span>
                     </span>
