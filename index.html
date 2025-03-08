@@ -277,13 +277,7 @@
     <h1 class="title">GPREDICT: Prediction of Glioma Patients' Enrollment In Therapeutic Clinical Trials</h1>
     <p class="description">GPREDICT allows clinicians and researchers to estimate individual adult glioma patients' probability of enrolling in a therapeutic clinical trial, identify which patient characteristics most influence enrollment probability for a given patient, and generate general and patient-specific recommendations for increasing the probability of accrual.</p>
     <!-- Updated .toggle-buttons container -->
-    <div class="toggle-buttons" style="display: block; width: 100%; margin-top: 20px;">
-            <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
-                General Recommendations for Trial Screening <span>▼</span>
-            </button>
-    </div>
-
-            
+   
             <!-- DEMOGRAPHIC VARIABLES -->
             <div class="section-title">Demographic Variables</div>
             <div class="form-group">
@@ -437,23 +431,23 @@
         
     
     <div class="toggle-buttons">
+        div class="container">
         <button class="toggle-button" onclick="toggleSection('generalRecommendations')">
             General Recommendations for Trial Screening <span>▼</span>
         </button>
-    </div>
-    <div id="generalRecommendations" class="toggle-content">
-        <div class="impact-title">General Recommendations for Trial Screening</div>
-        <table class="recommendation-table">
-            <thead>
-                <tr>
-                    <th>Screening Discussion Patterns</th>
-                    <th>Recommendations</th>
-                </tr>
-            </thead>
-            <tbody id="generalRecommendationTableBody"></tbody>
-        </table>
-    </div>
-
+        <div id="generalRecommendations" class="toggle-content">
+            <div class="impact-title">General Recommendations for Trial Screening</div>
+            <table class="recommendation-table">
+                <thead>
+                    <tr>
+                        <th>Screening Discussion Patterns</th>
+                        <th>Recommendations</th>
+                    </tr>
+                </thead>
+                <tbody id="generalRecommendationTableBody"></tbody>
+            </table>
+        </div>
+   
     <div class="flex-container">
         <div class="flex-item">
             <button class="toggle-button" style="background-color: #052049; width: 100%;" onclick="toggleSection('impactSection')">
