@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -371,14 +372,11 @@
             </div>
 
             <div class="form-group">
-                <label for="PreferredLanguage">Preferred Language:
-        <span class="tooltip">
-            *<span class="tooltiptext">This variable is not used to calculate the probability of enrollment but is used to guide recommendations.</span>
-        </span>
-    </label>
-    <select id="PreferredLanguage" required>
-        <option value="1">English</option>
-        <option value="2">Non-English Language</option>
+                <label for="PreferredLanguage">Preferred Language:</label>
+                <select id="PreferredLanguage" required>
+                    <option value="1">English</option>
+                    <option value="2">Non-English Language</option>
+                </select>
             </div>
 
             <!-- SOCIOECONOMIC VARIABLES -->
@@ -405,23 +403,18 @@
             </div>
 
             <div class="form-group">
-               <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($):
-        <span class="tooltip">
-            *<span class="tooltiptext">This variable is not used to calculate the probability of enrollment but is used to guide recommendations.</span>
-        </span>
-        <a href="https://data.census.gov/table?q=median+household+income&tid=ACSST1Y2021.S1901" target="_blank">*</a>
-        <span class="tooltiptext">Median income was derived for neighborhood Zipcode. Click the link to determine patient's neighborhood household income by zipcode.</span>
-    </label>
-    <input type="number" id="IncomeZip" required>
+                <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($): 
+                    <span class="tooltip">
+                        <a href="https://data.census.gov/table?q=median+household+income&tid=ACSST1Y2021.S1901" target="_blank">*</a>
+                        <span class="tooltiptext">Median income was derived for neighborhood Zipcode. Click the link to determine patient's neighborhood household income by zipcode.</span>
+                    </span>
+                </label>
+                <input type="number" id="IncomeZip" required>
             </div>
 
             <div class="form-group">
-                 <label for="DistanceHospital">Driving Distance from Patient's Home to Hospital (miles):
-        <span class="tooltip">
-            *<span class="tooltiptext">This variable is not used to calculate the probability of enrollment but is used to guide recommendations.</span>
-        </span>
-    </label>
-    <input type="number" id="DistanceHospital" required>
+                <label for="DistanceHospital">Driving Distance from Patient's Home to Hospital (miles):</label>
+                <input type="number" id="DistanceHospital" required>
             </div>
 
             <!-- ONCOLOGIC VARIABLES -->
