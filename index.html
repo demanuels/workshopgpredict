@@ -402,7 +402,12 @@
             </div>
 
             <div class="form-group">
-                <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($):</label>
+                <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($): 
+                    <span class="tooltip">
+                        <a href="https://data.census.gov/table?q=median+household+income&tid=ACSST1Y2021.S1901" target="_blank">*</a>
+                        <span class="tooltiptext">Median income was derived for neighborhood Zipcode. Click the link to determine patient's neighborhood household income by zipcode.</span>
+                    </span>
+                </label>
                 <input type="number" id="IncomeZip" required>
             </div>
 
@@ -436,7 +441,7 @@
             </div>
 
             <div class="form-group">
-                <label for="Seizure">Seizure Pre-op:</label>
+                <label for="Seizure">Seizure at Diagnosis:</label>
                 <select id="Seizure" required>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -445,7 +450,7 @@
             </div>
 
             <div class="form-group">
-                <label for="KPSPostOp">KPS Post-op:</label>
+                <label for="KPSPostOp">KPS after Surgery:</label>
                 <select id="KPSPostOp" required>
                     <option value="100">100</option>
                     <option value="90">90</option>
@@ -456,7 +461,7 @@
             </div>
 
             <div class="form-group">
-                <label for="Chemotherapy">Received Chemotherapy?</label>
+                <label for="Chemotherapy">History of Chemotherapy Use?</label>
                 <select id="Chemotherapy" required>
                     <option value="1">Yes</option>
                     <option value="2">No</option>
