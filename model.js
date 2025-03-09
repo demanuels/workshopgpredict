@@ -46,10 +46,6 @@ var getInputMetadata = function() {
        "id": "KPS.post.op 3",
        "type": "number"
      },
-     "Minority (Yes=1, No=2) 2": {
-       "id": "Minority (Yes=1, No=2) 2",
-       "type": "number"
-     },
      "New Tumor Lobe (updated chart review) 2 2 2": {
        "id": "New Tumor Lobe (updated chart review) 2 2 2",
        "type": "number"
@@ -119,8 +115,6 @@ var score = function(indata, outdata) {
     // Original name was: 'New Tumor Lobe (updated chart review) 2 2 2_asCode'
     var New_Tumor_Lobe_updated_chart_review_2_2_2_asCode;
     // Original name was: 'Minority (Yes=1, No=2) 2_asCode'
-    var Minority_Yes_1_No_2_2_asCode;
-    // Original name was: 'KPS.post.op 3_asCode'
     var KPS_post_op_3_asCode;
     // Original name was: 'Ethnicity Hispanic/Latino (Yes=1, No=2) 2_asCode'
     var Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode;
@@ -183,6 +177,9 @@ var score = function(indata, outdata) {
     }
     else if (indata["Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2"] === 5)  {
         _temp_0 = 5;
+    }
+    else if (indata["Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2"] === 6)  {
+        _temp_0 = 6;
     }
     Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode = _temp_0;
 
@@ -250,18 +247,8 @@ var score = function(indata, outdata) {
         _temp_0 = 7;
     }
     New_Tumor_Lobe_updated_chart_review_2_2_2_asCode = _temp_0;
-
-    if (indata["Minority (Yes=1, No=2) 2"] === 0)  {
-        _temp_0 = 0;
     }
-    else if (indata["Minority (Yes=1, No=2) 2"] === 1)  {
-        _temp_0 = 1;
-    }
-    else if (indata["Minority (Yes=1, No=2) 2"] === 2)  {
-        _temp_0 = 2;
-    }
-    Minority_Yes_1_No_2_2_asCode = _temp_0;
-
+    
     if (indata["KPS.post.op 3"] === 0)  {
         _temp_0 = 0;
     }
@@ -305,2425 +292,1161 @@ var score = function(indata, outdata) {
     Employed_Y_1_N_2_Retired_3_2_asCode = _temp_0;
 
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_0 = 0.281964845003318;
+        _temp_0 = 0.0126647781306242;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_0 = -0.0250038430496375;
+        _temp_0 = 0.309197965917001;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_0 = 0.303849217779766;
+        _temp_0 = 0.669498828036753;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_0 = -0.560810219733446;
+        _temp_0 = -0.991361572084379;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_1 = -0.960420899275222;
+        _temp_1 = -2.11922104691318;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_1 = 0.586423107468012;
+        _temp_1 = 1.03185006170909;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_1 = 0.37399779180721;
+        _temp_1 = 1.08737098520409;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_2 = -0.153815467906483;
+        _temp_2 = -0.128876200026177;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_2 = 0.596895793957213;
+        _temp_2 = -0.418557414450321;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_2 = 0.177652382316328;
+        _temp_2 = -0.607157784509385;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_2 = 0.472546144733249;
+        _temp_2 = -0.254941401832939;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_2 = -1.09327885310031;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.312237096348227;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.0539191278169665;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.258317968531261;
+        _temp_2 = 1.40953280081882;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_4 = -0.681770472290861;
+        _temp_3 = -0.522776551234792;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_4 = -0.701471881855905;
+        _temp_3 = 0.518897799532632;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_4 = 0.164220236858181;
+        _temp_3 =  0.590201639773282;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_4 = -1.12480982802771;
+        _temp_3 = -1.54512163100576;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_4 = 0.165072942206286;
+        _temp_3 = -0.161403267528235;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_4 = -0.0914504443682371;
+        _temp_3 = -0.524604515772703;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_4 = 0.133866152079025;
+        _temp_3 = 0.460018344194363;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_4 = 2.13634329539922;
+        _temp_3 = 1.18478818204121;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_5 = -0.442476159635422;
+        _temp_4 = 0.0414587108932192;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_5 = -0.772626624296191;
+        _temp_4 = -0.795725093058357;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_5 = 0.0616598230184654;
+        _temp_4 = 0.270277193512977;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_5 = 0.750823490883436;
+        _temp_4 = 1.29427092128275;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_5 = 0.402619470029712;
+        _temp_4 = -0.810281732630594;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_6 = -0.212545121994471;
+        _temp_5 = -0.0858909963604649;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_6 = -0.198852678087471;
+        _temp_5 = 0.363711685084048;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_6 = 0.411397800081943;
+        _temp_5 = -0.277820688723583;
     }
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_7 = 0.049708224820321;
+        _temp_6 = 0.0590326968733491;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_7 = -0.049708224820321;
+        _temp_6 = -0.0590326968733491;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_8 = -0.147700954813856;
+        _temp_7 = -0.147700954813856;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_8 = -0.893875580151098;
+        _temp_7 = 0.717882687339312;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_8 = 1.04157653496495;
+        _temp_7 = -1.12107271375258;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.326591365743506;
+        _temp_8 = 0.0415265562816083;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = -0.324361859426042;
+        _temp_8 = 0.464122110935171;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.0311811718369466;
+        _temp_8 = -0.292052566652258;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -0.297685815583932;
+        _temp_8 = 0.136804358317938;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.244845509459705;
+        _temp_8 = -0.498351967812201;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 0.509120646889226;
+        _temp_8 = 0.224023851055555;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_10 = -0.305711007907023;
+        _temp_9 = 0.199259928705919;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_10 = 0.305711007907023;
+        _temp_9 = -0.199259928705919;
     }
-    H1_1_1 = Math.tanh((-1.13205351442658 + 0.201967965518138 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9 + 0.5 * _temp_10));
+    H1_1_1 = Math.tanh((-0.189498065818138 + -0.136904716750545 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9));
 
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_0 = -0.236654992790907;
+        _temp_0 = 0.0237751112382746;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_0 = -0.0774396452006185;
+        _temp_0 = -0.119589881112571;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_0 = 0.362420145842842;
+        _temp_0 = -0.183179258405319;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_0 = -0.0483255078513164;
+        _temp_0 = 0.278994028279615;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_1 = -0.539844168793808;
+        _temp_1 = -0.131032016083515;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_1 = 0.76388644879857;
+        _temp_1 = -0.359562198567442;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_1 = -0.224042280004762;
+        _temp_1 = 0.490594214650958;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_2 = -0.137334815371011;
+        _temp_2 = 0.190000047886121;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_2 = -0.38247013162317;
+        _temp_2 = -0.0484618028676944;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_2 = -0.468288646287751;
+        _temp_2 = 0.219577572600708;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_2 = -0.895733263577613;
+        _temp_2 = 0.00718714258914292;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_2 = 1.88382685685954;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.109793165120578;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.306819366419258;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.416612531539836;
+        _temp_2 = -0.368302960208278;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_4 = -0.31970472623112;
+        _temp_3 = -0.164054667221055;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_4 = 0.122115707401869;
+        _temp_3 = 0.182293098070574;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_4 = 0.353830660660874;
+        _temp_3 = 0.135335128633339;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_4 = 0.390543533814436;
+        _temp_3 = -0.234827889355386;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_4 = -0.066685392047403;
+        _temp_3 = -0.0994536362975358;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_4 = -0.925967856426737;
+        _temp_3 = -0.102905094750491;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_4 = 0.491826704774159;
+        _temp_3 = -0.00472370540554088;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_4 = -0.0459586319460769;
+        _temp_3 = 0.288336766326095;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_5 = -0.0288936391649047;
+        _temp_4 = 0.0806764382980865;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_5 = -0.555941929297718;
+        _temp_4 = 0.0334894985200525;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_5 = -0.153603347481454;
+        _temp_4 = -0.211065949272443;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_5 = -0.802970421172912;
+        _temp_4 = -0.107682953711725;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_5 = 1.54140933711699;
+        _temp_4 = 0.20458296616603;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_6 = -0.0357331726371176;
+        _temp_5 = 0.0818806730585049;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_6 = 0.101296189513965;
+        _temp_5 = -0.00975352005849766;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_6 = -0.0655630168768469;
+        _temp_5 = -0.0721271530000072;
     }
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_7 = -0.0164303429196138;
+        _temp_6 = -0.11444723670835;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_7 = 0.0164303429196138;
+        _temp_6 = 0.11444723670835;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_8 = -0.400238376451746;
+        _temp_7 = -0.187226401615305;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_8 = -0.00537107883151077;
+        _temp_7 = -0.399366198064987;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_8 = 0.405609455283257;
+        _temp_7 = 0.586592599680291;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.441087232850031;
+        _temp_8 = -0.058617641093508;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.615812126191821;
+        _temp_8 = -0.0752113924935183;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.33806335183859;
+        _temp_8 = -0.0460104385486842;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.322967047968661;
+        _temp_8 = 0.0357853850388711;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.386278869002173;
+        _temp_8 = -0.0397828965390418;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -2.10420862785127;
+        _temp_8 = 0.0797642102362243;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = 0.104072773399657;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_10 = -0.0839014938959532;
+        _temp_9 = 0.0559314007858544;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_10 = 0.0839014938959532;
+        _temp_9 = -0.0559314007858544;
     }
-    H1_2_1 = Math.tanh((0.259048909809245 + 0.0901075636968795 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9 + 0.5 * _temp_10));
+    H1_2_1 = Math.tanh((-0.0762627977271408 + 0.0205871086830134 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9));
 
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_0 = 0.812817530943157;
+        _temp_0 = -0.274391997392284;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_0 = -0.367004332131025;
+        _temp_0 = -0.362759186992472;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_0 = -0.022838180925651;
+        _temp_0 = -1.0173215790521;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_0 = -0.42297501788648;
+        _temp_0 = 1.65447276343685;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_1 = 0.221852022787948;
+        _temp_1 = 0.986879199948826;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_1 = -0.913445507240748;
+        _temp_1 = -0.807530978341589;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_1 = 0.691593484452801;
+        _temp_1 = -0.179348221607237;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_2 = -0.50036010664857;
+        _temp_2 = 0.549090180917342;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_2 = -0.266739305374584;
+        _temp_2 = -0.892321926555133;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_2 = 0.355965409738837;
+        _temp_2 = -0.223886256489678;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_2 = -0.00874878577961997;
+        _temp_2 = -0.666228635193291;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_2 = 0.419882788063937;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.00828480328451443;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.307477426544338;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.299192623259823;
+        _temp_2 = 1.23334663732076;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_4 = 0.237508958856489;
+        _temp_3 = 0.872022634275439;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_4 = -0.255361917378597;
+        _temp_3 = -0.214358708566012;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_4 = 0.653088749673991;
+        _temp_3 = -0.502685692409063;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_4 = -0.263581445421587;
+        _temp_3 = 0.115797173173299;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_4 = -0.755589712635255;
+        _temp_3 = -0.670341348809547;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_4 = -0.430681221665771;
+        _temp_3 = -0.162209768510826;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_4 = -0.84204195041739;
+        _temp_3 = -0.679852740485696;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_4 = 1.65665853898812;
+        _temp_3 = 1.24162845133241;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_5 = 0.309187806412175;
+        _temp_4 = 0.290835126079727;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_5 = -1.77308583034307;
+        _temp_4 = 1.97019657368995;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_5 = -0.593807027550826;
+        _temp_4 = 0.28495294381258;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_5 = 0.0674278057175917;
+        _temp_4 = -1.30073194886369;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_5 = 1.99027724576413;
+        _temp_4 = -1.24525269471857;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_6 = 0.351583319790684;
+        _temp_5 = 0.303831848795258;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_6 = 0.272289623290069;
+        _temp_5 = 0.778504940109571;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_6 = -0.623872943080753;
+        _temp_5 = -1.08233678890483;
     }
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_7 = -0.0315120639004467;
+        _temp_6 = -0.502300916088885;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_7 = 0.0315120639004467;
+        _temp_6 = 0.502300916088885;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_8 = -0.225170634192241;
+        _temp_7 = 0.525874818193521;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_8 = 0.00524867884485675;
+        _temp_7 = 1.42348112177167;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_8 = 0.219921955347384;
+        _temp_7 = -1.9493559399652;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -0.190725813920916;
+        _temp_8 = -0.0713855519054636;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.26311991569297;
+        _temp_8 = -0.252190609271348;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.0797605107135635;
+        _temp_8 = 0.439025944932664;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.0334192366401326;
+        _temp_8 = 0.162571019200463;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.224669446461424;
+        _temp_8 = 0.943109708801401;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 0.0390955973356739;
+        _temp_8 = 0.575596153716508;
+      }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = -1.79672666547422;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_10 = 0.107979539436857;
+        _temp_9 = 0.024778213755159;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_10 = -0.107979539436857;
+        _temp_9 = -0.024778213755159;
     }
-    H1_3_1 = Math.tanh((0.398749358157098 + -0.25805692840421 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9 + 0.5 * _temp_10));
+    H1_3_1 = Math.tanh((1.94639019323218 + 0.121575394134246 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9));
 
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.0437551536947816;
+        _temp_0 = 0.251897754580538;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.0437551536947816;
+        _temp_0 = -0.251897754580538;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.114926381742098;
+        _temp_1 = -0.152612528599997;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.114926381742098;
+        _temp_1 = 0.152612528599997;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = -0.745791794183887;
+        _temp_2 = -0.31679469583994;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = 0.915157627603052;
+        _temp_2 = 0.105745617159407;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -0.169365833419165;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.0326702979279222;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.126128277947712;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.0934579800197901;
+        _temp_2 = 0.211049078680539;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.187909411195549;
+        _temp_3 = 0.124700905356773;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.0895428764809923;
+        _temp_3 = 0.0506312800301624;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.277452287676541;
+        _temp_3 = -0.1753321853869361;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.087493370964945;
+        _temp_4 = -0.0398712860329319;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.151599174724687;
+        _temp_4 = 0.45753474349506;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.239092545689632;
+        _temp_4 = -0.417663457462128;
     }
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = -0.324905882572109;
+        _temp_5 = 0.791493576301139;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.141808791251497;
+        _temp_5 = -0.0244513811856896;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = -0.0339625739360953;
+        _temp_5 = 0.267432980339133;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = 0.217059665256708;
+        _temp_5 = -1.03447517545458;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = 0.221815435917441;
+        _temp_6 = 0.276669378678425;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.205069634294718;
+        _temp_6 = 0.429437142111609;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.341050773508206;
+        _temp_6 = 0.00124670811104491;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.358406021673114;
+        _temp_6 = 0.751693087864806;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 0.272571724969161;
+        _temp_6 = 0.51854784686064;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = -0.222794881518574;
+        _temp_7 = 0.276669378678425;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = 0.0161230260649684;
+        _temp_7 = 0.429437142111609;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = 0.543695794428948;
+        _temp_7 = 0.00124670811104491;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -0.180169227313791;
+        _temp_7 = 0.751693087864806;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = -0.156854711661551;
+        _temp_7 = -1.45904631676588;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.0969741481032876;
+        _temp_8 = 0.180067411094087;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.133312723748027;
+        _temp_8 = 0.345059940985695;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.00330006097617157;
+        _temp_8 = 0.0615586138471504;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.14206576927261;
+        _temp_8 = 0.0983543245901424;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.0282405358538115;
+        _temp_8 = 0.223322914290542;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -0.403893237953908;
+        _temp_8 = 0.107344667525694;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = -1.01570787233331;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -0.595990435338477;
+        _temp_9 = 0.605762805549438;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.00776405800887107;
+        _temp_9 = 0.628440758570712;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.00644735350864895;
+        _temp_9 = 0.0770149347488965;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -0.499443273202641;
+        _temp_9 = 0.706000804765214;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 0.0838024268854047;
+        _temp_9 = 0.277749921327802;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -0.281621032167452;
+        _temp_9 = 0.204546339952245;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 0.375544213961865;
+        _temp_9 = 0.416873528712535;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 0.903496688343779;
+        _temp_9 = -2.91638909362684;
     }
-    H1_4_1 = -0.261227856951398 + 0.484980469215174 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10;
-
+    H1_4_1 = 0.372515969560646 + -0.523130741290663 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9;
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.00586670564212988;
+        _temp_0 = 0.203233328371212;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.00586670564212988;
+        _temp_0 = -0.203233328371212;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.0324087871957824;
+        _temp_1 = -0.140530898846548;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.0324087871957824;
+        _temp_1 = 0.140530898846548;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = -0.24719599236872;
+        _temp_2 = -0.486085778920368;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = 0.256735553051481;
+        _temp_2 = 0.199933270603037;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -0.00953956068276121;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.0169330742374024;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.0436528113337125;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.0267197370963101;
+        _temp_2 = 0.286152508317331;
+ 
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.0461283807134112;
+        _temp_3 = 0.288971612738222;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.0267306901477546;
+        _temp_3 = 0.289212085756129;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.0728590708611658;
+        _temp_3 = -0.578183698494351;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.0286356205063204;
+        _temp_4 = -0.0441207708425739;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.0374884586175866;
+        _temp_4 = 0.424638172031326;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.066124079123907;
+        _temp_4 = -0.380517401188752;
     }
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = -0.0981414598395326;
+        _temp_5 = 0.547588579619555;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.0333311475014817;
+        _temp_5 = -0.265238755566426;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = -0.0291325550200162;
+        _temp_5 = 0.20063387266368;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = 0.0939428673580672;
+        _temp_5 = -0.482983696716809;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = 0.082242489601218;
+        _temp_6 = -0.426967966506797;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.0545873467155343;
+        _temp_6 = -0.271214800334523;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.104199751022818;
+        _temp_6 = -0.263626728181577;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.108375521764865;
+        _temp_6 = 0.00831109536880886;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 0.0757454364709307;
+        _temp_6 = 0.953498399654088;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = -0.0574255613181511;
+        _temp_7 = 0.191027923498925;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -0.0013090019542803;
+        _temp_7 = 0.479066849899603;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = 0.162685840656203;
+        _temp_7 = 0.13697894778609;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -0.0627826949994715;
+        _temp_7 = 0.641996503520577;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = -0.0411685823843003;
+        _temp_7 = -1.4490702247052;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.0419777325297962;
+        _temp_8 = 0.105592489705452;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.0347210743769088;
+        _temp_8 = 0.157501427686568;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.0106524453801689;
+        _temp_8 = 0.0738151860938904;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.0487743892904394;
+        _temp_8 = 0.12657191641808;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.00737504117895313;
+        _temp_8 = 0.170136881255706;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -0.143500682756266;
+        _temp_8 = 0.0547920789245792;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = -0.688409980084275;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -0.185050249868804;
+        _temp_9 = 0.381994272938961;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.000345010695319089;
+        _temp_9 = -0.0389387255990775;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.00657905609482931;
+        _temp_9 = 0.0220987091611338;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -0.132980235814411;
+        _temp_9 = 0.507904685716836;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 0.0456150587850821;
+        _temp_9 = 0.235228302077014;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -0.0876726962951974;
+        _temp_9 = 0.139342351292817;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 0.102413359170155;
+        _temp_9 = 0.180364543226395;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 0.250750697233027;
+        _temp_9 = -1.42799413881408;
     }
-    H1_5_1 = -0.0372808060462019 + 0.138066856366806 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10;
+    H1_5_1 = 0.419465453290747 + -0.325450398436629 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9;
 
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.0118583914350205;
+        _temp_0 = 0.133516833393547;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.0118583914350205;
+        _temp_0 = -0.133516833393547;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.0214489722482294;
+        _temp_1 = -0.0336622677703033;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.0214489722482294;
+        _temp_1 = 0.033662267770303;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = -0.129802292307293;
+        _temp_2 = -0.24642491163728;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = 0.171444083977905;
+        _temp_2 = 0.16129226070738;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -0.0416417916706124;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.00749196608877995;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.0216108022764737;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.0141188361876938;
+        _temp_2 = 0.0851326509299003;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.0290987992078565;
+        _temp_3 = 0.221376442407133;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.0143774220464096;
+        _temp_3 = 0.288347323103581;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.0434762212542661;
+        _temp_3 = -0.509723765510714;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.0139636590847225;
+        _temp_4 = -0.0144714382425054;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.019927830562713;
+        _temp_4 = 0.169378534432977;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.0338914896474355;
+        _temp_4 = -0.15490709619047;
     }
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = -0.0510144136160427;
+        _temp_5 = 0.0067481196361444;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.0232673900939448;
+        _temp_5 = -0.18033924647579;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = 0.00222932106680191;
+        _temp_5 = 0.0358110854240114;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = 0.025517702455296;
+        _temp_5 = 0.137780041415634;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = 0.0409705900731436;
+        _temp_6 = -0.0231670913960045;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.0348053846395257;
+        _temp_6 = -0.0980383578886601;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.0641680829792449;
+        _temp_6 = 0.19048300188306;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.0738194434568107;
+        _temp_6 = -0.0782172290693212;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 0.0622115517233863;
+        _temp_6 = 0.389905680237046;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = -0.0446781570881669;
+        _temp_7 = 0.0136071263941615;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = 0.00642841324099586;
+        _temp_7 = 0.335078989209813;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = 0.105153865561981;
+        _temp_7 = 0.149633813130174;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -0.0311053856693588;
+        _temp_7 = 0.150296158398846;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = -0.0357987360454515;
+        _temp_7 = -0.648616087132995;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.0239674533998855;
+        _temp_8 = -0.0599133088163611;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.0256341152596323;
+        _temp_8 = -0.125417548213399;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.0000513876667290372;
+        _temp_8 = 0.0588605257062206;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.0219150732799415;
+        _temp_8 = 0.0351736522976984;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.00861572567147445;
+        _temp_8 = 0.0428760299583367;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -0.0801837552776627;
+        _temp_8 = -0.0599235427515109;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = 0.108344191819015;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -0.108352267493068;
+        _temp_9 = -0.493219300299262;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.0557022433483314;
+        _temp_9 = 0.0557022433483314;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.00510634772430765;
+        _temp_9 = -0.00551720816861426;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -0.0836778634225807;
+        _temp_9 =  0.0103492349549222;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 0.0221997334024924;
+        _temp_9 = 0.133717235842985;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -0.0426070972384229;
+        _temp_9 = -0.052343509777323;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 0.0613986477248181;
+        _temp_9 = -0.00727967132368769;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 0.0902302559541225;
+        _temp_9 = 0.42595782442234;
     }
-    H1_6_1 = -0.0438552915970912 + 0.0937807382441264 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10;
+    H1_6_1 = 0.0359463840909912 + -0.00550251935620229 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9;
 
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = -0.0610950001882969;
+        _temp_0 = -0.0577612124900942;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = 0.0610950001882969;
+        _temp_0 = 0.0577612124900942;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = 0.232016798704185;
+        _temp_1 = 0.124025251540017;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = -0.232016798704185;
+        _temp_1 = -0.124025251540017;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 0.902039894913889;
+        _temp_2 = -1.11953749043308;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -1.25056054175316;
+        _temp_2 = 0.644313107459744;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = 0.348520646839272;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.230042218267516;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.373342757027502;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.143300538759987;
+        _temp_2 = 0.475224382973341;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = 0.365446233876814;
+        _temp_3 = -0.0969480525914383;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.295179548444529;
+        _temp_3 = 0.929072886526392;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = -0.0702666854322855;
+        _temp_3 = -0.832124833934954;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = 0.187460362981881;
+        _temp_4 = -0.182373702889428;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = 0.593279750121872;
+        _temp_4 = -0.644432558996541;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = -0.780740113103753;
+        _temp_4 = 0.826806261885968;
     }
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = -0.0765433219920624;
+        _temp_5 = 1.10163793356367;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.181485075103039;
+        _temp_6 = -1.2246560443532;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = -0.0294446059061834;
+        _temp_5 = 0.313040425606567;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -0.0754971472047928;
+        _temp_5 = -0.190022314817042;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = -0.148596837937623;
+        _temp_6 = -0.898649691214404;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.199801779306525;
+        _temp_6 = 0.30519999125091;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = 0.186911115897785;
+        _temp_6 = 0.254838623598317;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.0971058165538166;
+        _temp_6 = 0.10968379465957;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = -0.14101024071287;
+        _temp_6 = 0.228927281705607;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = -0.258683123760298;
+        _temp_7 = -0.0223826486587303;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -0.295291128574245;
+        _temp_7 = -0.93791442534631;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = -0.265687585829074;
+        _temp_7 = -0.395702885172414;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = 1.13459566888538;
+        _temp_7 = 1.97003022209183;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = -0.314933830721764;
+        _temp_7 = -0.614030262914378;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -0.0142373453673517;
+        _temp_8 = -0.806583742161181;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = -0.220545015909182;
+        _temp_8 = 0.15367237775351;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.179669190821379;
+        _temp_8 = -0.581948229581336;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -0.224446178898688;
+        _temp_8 = -1.13142461754078;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.231929136318523;
+        _temp_8 = -0.782030342724537;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 0.870826867315124;
+        _temp_8 = -0.523115081413824;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = 3.67142963566815;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = 0.0535206485939941;
+        _temp_9 = -0.0538659281753216;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.014456076374389;
+        _temp_9 = 1.39143404845885;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.17314961065516;
+        _temp_9 = 0.372245982153168;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -0.128243895689873;
+        _temp_9 = 1.24923835368529;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 1.17866721478445;
+        _temp_9 = -0.419317506852587;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -0.197336177557289;
+        _temp_9 = 0.769493129602178;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = -0.15974764043187;
+        _temp_9 = -0.579048829744727;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = -0.934465836728964;
+        _temp_9 = -2.73017924912685;
     }
-    H1_7_1 = Math.exp(-((0.5 * Math.pow((1.35012778554674 + -0.0634460609721873 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10), 2))));
+   H1_7_1 = Math.exp(-((0.5 * Math.pow((-4.35958256077917 + -1.08919185949274 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9), 2))));
 
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = -0.407384834134176;
+        _temp_0 = -0.21788288518443;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = 0.407384834134176;
+        _temp_0 = 0.21788288518443;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = 0.249014111574619;
+        _temp_1 = 0.496505922571509;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = -0.249014111574619;
+        _temp_1 = -0.496505922571509;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 0.557948389461775;
+        _temp_2 = 0.341784591269466;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -0.092216074897339;
+        _temp_2 = -0.931325852462107;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -0.465732314564436;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.0434997074032916;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.32538379806972;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.368883505473012;
+        _temp_2 = 0.589541261192641;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.0206456040977026;
+        _temp_3 = -0.994323627840753;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = 0.221266290788344;
+        _temp_3 = 0.287073828553811;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = -0.200620686690642;
+        _temp_3 = 0.707249799286942;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = 0.502437596238196;
+        _temp_4 = 0.648073338249544;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.206526563731061;
+        _temp_4 = -0.690780666934527;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = -0.295911032507136;
+        _temp_4 = 0.0427073286849825;
     }
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = 0.67509004750022;
+        _temp_5 = -0.521781766115371;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.444311321231024;
+        _temp_5 = 1.01739392918978;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = -1.04051081317619;
+        _temp_5 = 1.19441458986446;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -0.0788905555550554;
+        _temp_5 = -1.69002675293887;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = -0.220001837814115;
+        _temp_6 = 0.325386548344933;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = -0.313178015141845;
+        _temp_6 = -0.492302745360655;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.0458838809311406;
+        _temp_6 = 1.09403921678708;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.15409129054136;
+        _temp_6 = 0.955902181419083;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 0.73315502442846;
+        _temp_6 = -1.88302520119044;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = 0.300085435358839;
+        _temp_7 = 0.23911557675073;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -0.691890402956217;
+        _temp_7 = -0.0468150684350184;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = 0.173124377932841;
+        _temp_7 = -0.757986674678707;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -1.06882478898625;
+        _temp_7 = 0.267494498826834;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = 1.28750537865079;
+        _temp_7 = 0.298191667536161;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -0.00964157249172134;
+        _temp_8 = -0.331121401463314;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.531192441290881;
+        _temp_8 = 0.782002028689726;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.250671921135891;
+        _temp_8 = -0.361608744441757;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.315678567039764;
+        _temp_8 = 0.580391776565729;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.514064882252259;
+        _temp_8 = -0.552972229620858;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -1.10062239695529;
+        _temp_8 = 0.46643678937564;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = -0.5831282191051664;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = 0.275249763213494;
+        _temp_9 = 1.697108174886664;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.856633655181477;
+        _temp_9 = -0.1056956272640267;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = -0.00142373833478423;
+        _temp_9 = 0.26746636774194;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = 0.0501863553217172;
+        _temp_9 = -0.63389705970549;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 0.0548117795571919;
+        _temp_9 = 0.365281126572475;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = 0.621684185618969;
+        _temp_9 = -0.00549910577320459;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = -0.100322261879404;
+        _temp_9 = -1.29144942782032;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = -1.75681973867866;
+        _temp_9 = -0.293314448638035;
     }
-    H1_8_1 = Math.exp(-((0.5 * Math.pow((1.08706383437481 + 0.0838481528230639 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10), 2))));
+    H1_8_1 = Math.exp(-((0.5 * Math.pow((1.27765415756494 + 0.235787509260951 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9), 2))));
 
     if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = -0.228953899601032;
+        _temp_0 = -0.20260034099646;
     }
     else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = 0.228953899601032;
+        _temp_0 = 0.20260034099646;
     }
     if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.253494816244231;
+        _temp_1 = 0.197514266786602;
     }
     else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.253494816244231;
+        _temp_1 = -0.197514266786602;
     }
     if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = -0.331004752536032;
+        _temp_2 = 0.862016857987336;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -0.850921991288005;
+        _temp_2 = -0.636283581205481;
     }
     else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = 1.18192674382404;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.955841072097359;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.0240064670551509;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.97984753915251;
+        _temp_2 = -0.225733276781856;
     }
     if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.199693630746581;
+        _temp_3 = -1.47339459072853;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.0576780558866751;
+        _temp_3 = 0.584635532911111;
     }
     else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.257371686633256;
+        _temp_3 = 0.888759057817415;
     }
     if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.134044222609646;
+        _temp_4 = 1.21582370005879;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = 0.122502298201614;
+        _temp_4 = 0.536672449619317;
     }
     else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.011541924408032;
+        _temp_4 = -1.75249614967811;
     }
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = 0.279401116587307;
+        _temp_5 = 0.053730748195506;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = -0.471010939069892;
+        _temp_5 = -0.920824895214651;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = 0.298630603293731;
+        _temp_5 = 0.035520831845533;
     }
     else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -0.107020780811146;
+        _temp_5 = 0.831573315173612;
     }
     if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = 0.199225131862642;
+        _temp_6 =0.513660782969264;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.0642046874609112;
+        _temp_6 = 0.268121345281344;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = 0.337285875832442;
+        _temp_6 = -0.333896884569215;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = 0.493967665024701;
+        _temp_6 = -0.93748876843055;
     }
     else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = -1.0946833601807;
+        _temp_6 = 0.489603524749162;
     }
     if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = 0.620731426978555;
+        _temp_7 = -1.45702574284349;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -2.2075626572145;
+        _temp_7 = -0.66693405548903;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = -0.379790144916764;
+        _temp_7 = -0.123608646905729;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = 0.452222943503041;
+        _temp_7 = -2.15452615644934;
     }
     else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = 1.51439843164967;
+        _temp_7 = 4.40209460168759;
     }
     if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -0.920786629469615;
+        _temp_8 = -0.449557985157274;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.427710034608552;
+        _temp_8 = 0.0939738731099869;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.304334098634857;
+        _temp_8 = 0.792417627820648;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.0846460448660621;
+        _temp_8 = 0.181962929931391;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.221845413022527;
+        _temp_8 = -0.982482392775062;
     }
     else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -0.117748961662383;
+        _temp_8 = 0.275860015620587;
+    }
+    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 6))  {
+        _temp_8 = 0.0878259314497241;
     }
     if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -1.04291482629564;
+        _temp_9 = 1.07406634313454;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.196171796948205;
+        _temp_9 = -1.3417912186540;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = -0.0709119437011363;
+        _temp_9 = -1.21055497321659;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = 0.197470347141173;
+        _temp_9 = 0.636643338137167;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = -0.0476348276691866;
+        _temp_9 = -1.66728327334692;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -0.171803824934493;
+        _temp_9 = -0.179731170537166;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 1.06796059461826;
+        _temp_9 = -0.0333527806294852;
     }
     else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = -0.128337316107182;
+        _temp_9 = 2.72200373511252;
     }
-    H1_9_1 = Math.exp(-((0.5 * Math.pow((0.657117498997574 + -0.251209117989475 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10), 2))));
+   H1_9_1 = Math.exp(-((0.5 * Math.pow((2.22097804328749 + -0.690691704984242 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9), 2))));
 
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_0 = 0.988125824654854;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_0 = 0.743007790673161;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_0 = -0.179083598846018;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_0 = -1.552050016482;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_1 = -1.13802682485813;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_1 = 0.632898281449801;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_1 = 0.505128543408332;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_2 = -0.536679380144055;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_2 = -0.125938870646933;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_2 = 0.459268827710176;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_2 = -0.0036724689496215;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_2 = 0.207021892030433;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.514761007670342;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.482837849525872;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.0319231581444695;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_4 = 0.0989553796914318;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_4 = -1.47453735349446;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_4 = -0.496446202266076;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_4 = 0.580809008833916;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_4 = -0.366366346321978;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_4 = 1.15377043147553;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_4 = -1.41124047215542;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_4 = 1.91505555423705;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_5 = 0.792665557917401;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_5 = 0.315119370676631;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_5 = -0.309687868270888;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_5 = -2.23977501759065;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_5 = 1.44167795726751;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_6 = -0.414248652240089;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_6 = -0.936290236578172;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_6 = 1.35053888881826;
-    }
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_7 = -0.0840840778712593;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_7 = 0.0840840778712593;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_8 = 0.0918899731256231;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_8 = 0.674577278449047;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_8 = -0.76646725157467;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.937096580823484;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.373283868717699;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.681875341509647;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -0.676520851009248;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.156263008877852;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -0.10824726590014;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_10 = 0.114984991589859;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_10 = -0.114984991589859;
-    }
-    H1_10_1 = Math.tanh((-0.365928772078896 + -0.180868107936403 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9 + 0.5 * _temp_10));
+    outdata["Probability( Clinical Trial enrollment: (Yes=1, No =2)=1 )_1"] = Math.exp((-0.273226016563953 + -1.80645679442871 * H1_1_1 + -0.778954706085276 * H1_2_1 + -1.89821124716246 * H1_3_1 + 0.31496750476159 * H1_4_1 + 0.561220256058835 * H1_5_1 + 0.530126799500854 * H1_6_1 + 1.18319822352502 * H1_7_1 + -1.66722221579876 * H1_8_1 + -1.82863696757146 * H1_9_1)) / (1 + Math.exp((-0.273226016563953 + -1.80645679442871 * H1_1_1 + -0.778954706085276 * H1_2_1 + -1.89821124716246 * H1_3_1 + 0.31496750476159 * H1_4_1 + 0.561220256058835 * H1_5_1 + 0.530126799500854 * H1_6_1 + 1.18319822352502 * H1_7_1 + -1.66722221579876 * H1_8_1 + -1.82863696757146 * H1_9_1)));
 
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_0 = 0.240813357875578;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_0 = -1.15702548194161;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_0 = 1.03749347843337;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_0 = -0.12128135436734;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_1 = 0.163227309670328;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_1 = 0.334575401756085;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_1 = -0.497802711426413;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_2 = 0.209985126319665;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_2 = -0.53495120563746;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_2 = 1.3004494424574;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_2 = 1.96568559503255;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_2 = -2.94116895817215;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.847030210302528;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.0223531621853755;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.824677048117153;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_4 = -0.508833843326504;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_4 = 0.257332491810947;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_4 = -0.102065909322915;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_4 = 0.350248312094144;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_4 = -1.28363167532568;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_4 = -0.0943453067197062;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_4 = 0.547456596400012;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_4 = 0.833839334389697;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_5 = -0.226898404178976;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_5 = 2.45097068900763;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_5 = -2.61035172325582;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_5 = 0.478349218204058;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_5 = -0.0920697797768871;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_6 = -0.459858384302477;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_6 = -0.8161921424172;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_6 = 1.27605052671968;
-    }
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_7 = -0.358289531612232;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_7 = 0.358289531612232;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_8 = 0.393653470197386;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_8 = 0.440447162669898;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_8 = -0.834100632867284;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -1.3814002494499;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.27299812614333;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.344801485570827;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.113002173443669;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.514117695973071;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 1.8543191314068;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_10 = -0.83279789895507;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_10 = 0.83279789895507;
-    }
-    H1_11_1 = Math.tanh((-0.882561890920871 + 0.0660258063723134 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9 + 0.5 * _temp_10));
-
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_0 = -0.199062606537917;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_0 = 1.1114332047285;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_0 = -0.159689809112733;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_0 = -0.752680789077851;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_1 = 0.527316431282076;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_1 = 0.592656664293499;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_1 = -1.11997309557557;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_2 = 0.603280486533191;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_2 = -0.174343475496345;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_2 = -0.993326554950248;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_2 = -0.344174068755084;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_2 = 0.908563612668486;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.39391356410629;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.0423860502798535;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.351527513826436;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_4 = 0.125240977224504;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_4 = 1.45653849075758;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_4 = 0.132281469822611;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_4 = -1.27588641856781;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_4 = 0.0230551595442217;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_4 = -0.154815640526807;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_4 = 1.04158175324035;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_4 = -1.34799579149465;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_5 = -0.517940558158251;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_5 = -0.887275284188073;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_5 = 1.06525544605824;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_5 = 0.675581002208877;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_5 = -0.33562060592079;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_6 = -0.413051710930093;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_6 = 1.00427890380111;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_6 = -0.591227192871012;
-    }
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_7 = 0.15363316819744;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_7 = -0.15363316819744;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_8 = 0.0256366551644724;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_8 = 1.32832658610446;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_8 = -1.35396324126893;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.0119797769734463;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.591673024007737;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.0991789342713156;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 1.25631819452245;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.0497993599713861;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -1.8105914212037;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_10 = 0.167489457221365;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_10 = -0.167489457221365;
-    }
-    H1_12_1 = Math.tanh((0.87527925992327 + -0.272614845900062 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9 + 0.5 * _temp_10));
-
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = -0.0653913460832923;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = 0.0653913460832923;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.147471438900808;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.147471438900808;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 0.195690605944564;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -0.103786767690054;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -0.0919038382545098;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.121761739287409;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.0530316772617512;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.174793416549161;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.110669783728197;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.0291389084182186;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.139808692146416;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.0588220176089497;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.11087273846056;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.16969475606951;
-    }
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = -0.0381402474026366;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.124010032346894;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = 0.141807264041565;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -0.227677048985822;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = -0.204387052684118;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = -0.0846521482504255;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = 0.0357236141840209;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = 0.168105407515502;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 0.0852101792350201;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = 0.00175256170634522;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = 0.217398147224386;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = -0.187596472362318;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = 0.291568593648166;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = -0.323122830216579;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -0.0681623445473712;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.001714619989034;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.17510615416584;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 0.17316911720046;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.00955453167047093;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 0.0588302298532463;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = 0.0972733891102751;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = -0.122025217512893;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.16119418139958;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = 0.0925812487757277;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 0.304451235672725;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -0.177770598690908;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 0.026524618730447;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = -0.382228857484954;
-    }
-    H1_13_1 = -0.394723892268646 + -0.0641315177052463 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10;
-
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = -0.0694211022245873;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = 0.0694211022245873;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.261154051555541;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.261154051555541;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 0.242096929319458;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -0.113096308305203;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -0.129000621014254;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.151471461635366;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.317203461195941;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.165731999560575;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.0412828892609841;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = 0.125357674244087;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = -0.0840747849831029;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.0979944905694277;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.0932238470411434;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.191218337610571;
-    }
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = 0.0928531359607798;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.0760920043892082;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = 0.190650030510296;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -0.359595170860284;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = -0.0412005360593583;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = -0.0473773445993515;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = 0.0314397606736898;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = 0.369344568537942;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = -0.312206448552922;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = 0.000704301083666477;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -0.00703747863234857;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = -0.364929961310286;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = 0.292125411673405;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = 0.0791377271855629;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -0.164128891343146;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.0491446682094323;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.19553187775101;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -0.082427278509764;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.0545556571336013;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 0.0564352810260693;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -0.137689156245225;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.650447852526745;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.0374394980442822;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -0.0923668068309587;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = 0.360438511766274;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = 0.084374536324078;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 0.588681053646438;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = -1.49132548923163;
-    }
-    H1_14_1 = -0.568905656342851 + 0.0298047857259259 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10;
-
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.0524223933324964;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.0524223933324964;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = 0.431801979276423;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = -0.431801979276423;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = -0.380302624387148;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -0.0206582824301098;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = 0.400960906817258;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = 0.148880507667932;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.315822535199778;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.166942027531846;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.0521071500303691;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.275631485881595;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.327738635911964;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = -0.201650942495144;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.146142412128109;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.347793354623254;
-    }
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = 0.0589308435592888;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = -0.0795606875740957;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = -0.496422277665282;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = 0.517052121680089;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = -0.250160747051311;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.336971196860004;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = 0.0461883409461314;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.945764955298093;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 0.812766164543269;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = 0.583933723148208;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -0.245041408233961;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = 0.436342765019393;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -1.61893765701663;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = 0.843702577082993;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.304721832001604;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = -0.0766286665309176;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.2199842524573;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -0.454362615368418;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.0294857721083408;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 0.475739474463372;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -0.0192711185370897;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = -0.298342526659316;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = -0.205944344401359;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = 0.49488412864101;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = -0.445524089531879;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = 0.252247545512967;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = -1.29826160970714;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 1.52021201468281;
-    }
-    H1_15_1 = -0.117904615030296 + 0.136476988402132 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10;
-
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.690429292449692;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.690429292449692;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.351427662471375;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.351427662471375;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 0.479108319984893;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -1.4143341429207;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = 0.935225822935808;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.540967845419555;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.0365685832722158;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.577536428691771;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -0.744258367016919;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = 0.194865227681649;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.54939313933527;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = 0.0271566181962685;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = 0.092723062901291;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = -0.11987968109756;
-    }
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = -2.23182455260149;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 2.69791010975593;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = 0.598542133593962;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -1.0646276907484;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = 0.177505123244295;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = -0.653273244506492;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.841785009368814;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.801233585268349;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 2.11878671589936;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = -0.029124465557765;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -1.17068183919851;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = -0.123352342573543;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -1.45281024696961;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = 2.77596889429944;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = -1.30026995370337;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = 0.77423746189135;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -1.12120596933591;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -1.94689642656618;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.156193071926444;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 3.75032795964055;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = 0.972107074410431;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = 0.577867134226264;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 1.2945035592962;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -1.51062902175123;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = -2.4241395235047;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = 0.955447793249563;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = -0.813285519646383;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 0.948128503719847;
-    }
-    H1_16_1 = Math.exp(-((0.5 * Math.pow((-2.4430652797756 + 0.496048248148425 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10), 2))));
-
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.344381618749245;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.344381618749245;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.568485223996374;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.568485223996374;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 1.78337868836058;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = -0.170701438273972;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -1.61267725008661;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.680077868156759;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = -0.224014901160871;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = 0.90409276931763;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = 0.42422647878791;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.67225467064867;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 0.24802819186076;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = 0.228002180261363;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = -0.458008732501064;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = 0.230006552239701;
-    }
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = 1.45349460048721;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = -0.0639304237486287;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = -1.3184159651337;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -0.0711482116048854;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = 0.0771229837865123;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = -0.697862296819537;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.595150475174918;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.380934134791866;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 1.59682392299981;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = 0.322355251644381;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = -1.66433580082091;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = 0.762148328434351;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = -0.361402575175034;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = 0.941234795917212;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.433018786810337;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = -0.497136168533013;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = 0.385487432376906;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = 1.60925927578854;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = 0.642653160714295;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = -2.57328248715707;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = 0.208610233979908;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = -0.204734720970889;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.298543072020268;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = -1.39730154142055;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = -0.149435573318369;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = 1.14736285080088;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = -1.52226447752739;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 1.61922015643613;
-    }
-    H1_17_1 = Math.exp(-((0.5 * Math.pow((2.46371935646819 + 0.296245792523119 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10), 2))));
-
-    if (jmp.numeq(indata["Sex (M=1, F=2)"], 1))  {
-        _temp_0 = 0.242948295954506;
-    }
-    else if (jmp.numeq(indata["Sex (M=1, F=2)"], 2))  {
-        _temp_0 = -0.242948295954506;
-    }
-    if (jmp.numeq(WHO_Grade_2_2_asCode, 0))  {
-        _temp_1 = -0.211624378988741;
-    }
-    else if (jmp.numeq(WHO_Grade_2_2_asCode, 1))  {
-        _temp_1 = 0.211624378988741;
-    }
-    if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 0))  {
-        _temp_2 = 1.10197883568985;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 1))  {
-        _temp_2 = 1.15486930693286;
-    }
-    else if (jmp.numeq(Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode, 2))  {
-        _temp_2 = -2.2568481426227;
-    }
-    if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 0))  {
-        _temp_3 = -0.0299333042724751;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 1))  {
-        _temp_3 = 0.346993629008751;
-    }
-    else if (jmp.numeq(Minority_Yes_1_No_2_2_asCode, 2))  {
-        _temp_3 = -0.317060324736276;
-    }
-    if (jmp.numeq(Seizure_preop_2_asCode, 0))  {
-        _temp_4 = -1.47735622301628;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 1))  {
-        _temp_4 = -0.630299179019908;
-    }
-    else if (jmp.numeq(Seizure_preop_2_asCode, 2))  {
-        _temp_4 = 2.10765540203619;
-    }
-    if (jmp.numeq(TMZ_anytime_2_2_asCode, 0))  {
-        _temp_5 = 0.362105105056917;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 1))  {
-        _temp_5 = 0.034660519411572;
-    }
-    else if (jmp.numeq(TMZ_anytime_2_2_asCode, 2))  {
-        _temp_5 = -0.396765624468489;
-    }
-    if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
-        _temp_6 = 0.371457530460149;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 1))  {
-        _temp_6 = 0.586163360774326;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 2))  {
-        _temp_6 = 0.380927854301652;
-    }
-    else if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 3))  {
-        _temp_6 = -1.33854874553613;
-    }
-    if (jmp.numeq(KPS_post_op_3_asCode, 0))  {
-        _temp_7 = -1.53887169121376;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 1))  {
-        _temp_7 = 0.0824373667271344;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 2))  {
-        _temp_7 = -0.5624882190645;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 3))  {
-        _temp_7 = -0.44173406684456;
-    }
-    else if (jmp.numeq(KPS_post_op_3_asCode, 4))  {
-        _temp_7 = 2.46065661039569;
-    }
-    if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 0))  {
-        _temp_8 = -0.195109598973373;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 1))  {
-        _temp_8 = 0.623008473025615;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 2))  {
-        _temp_8 = -0.291489720943803;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 3))  {
-        _temp_8 = 0.759612362821505;
-    }
-    else if (jmp.numeq(Reordered_insurance_at_diagnosis_2_2_asCode, 4))  {
-        _temp_8 = -0.896021515929944;
-    }
-    if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 0))  {
-        _temp_9 = 0.419254478343868;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 1))  {
-        _temp_9 = -1.10686318344777;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 2))  {
-        _temp_9 = -0.047582447290572;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 3))  {
-        _temp_9 = -0.667107059618892;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 4))  {
-        _temp_9 = -0.264469002919245;
-    }
-    else if (jmp.numeq(Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode, 5))  {
-        _temp_9 = 1.66676721493261;
-    }
-    if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 0))  {
-        _temp_10 = -1.50616907630538;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 1))  {
-        _temp_10 = -1.16487774866766;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 2))  {
-        _temp_10 = 0.671214611662074;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 3))  {
-        _temp_10 = 0.413682010429288;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 4))  {
-        _temp_10 = -3.43315612878005;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 5))  {
-        _temp_10 = -1.48528868206444;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 6))  {
-        _temp_10 = 1.19959649605447;
-    }
-    else if (jmp.numeq(New_Tumor_Lobe_updated_chart_review_2_2_2_asCode, 7))  {
-        _temp_10 = 5.30499851767169;
-    }
-    H1_18_1 = Math.exp(-((0.5 * Math.pow((-4.14953145726396 + -0.43904216126529 * Math.log(((-12.2966854036793 + indata["Age.at.Initial.Diagnosis"]) / (91.7158588244415 + -1 * indata["Age.at.Initial.Diagnosis"]))) + _temp_0 + _temp_1 + _temp_2 + _temp_3 + _temp_4 + _temp_5 + _temp_6 + _temp_7 + _temp_8 + _temp_9 + _temp_10), 2))));
-
-    outdata["ProbabilityEnroll"] = Math.exp((-3.85213586897436 + 0.415234781022994 * H1_1_1 + 3.2778632559714 * H1_10_1 + -3.80861068360663 * H1_11_1 + -3.88874081109201 * H1_12_1 + 0.423717114117874 * H1_13_1 + 0.665662700314412 * H1_14_1 + -2.3591922060589 * H1_15_1 + 2.93261096787831 * H1_16_1 + 2.90987110727057 * H1_17_1 + 2.15335159211696 * H1_18_1 + 0.3423452263582 * H1_2_1 + -0.33376344690799 * H1_3_1 + -0.312902900731034 * H1_4_1 + -0.085985362437798 * H1_5_1 + -0.0593332104651008 * H1_6_1 + 0.147201549636352 * H1_7_1 + 0.197394895500769 * H1_8_1 + 0.213280358742761 * H1_9_1)) / (1 + Math.exp((-3.85213586897436 + 0.415234781022994 * H1_1_1 + 3.2778632559714 * H1_10_1 + -3.80861068360663 * H1_11_1 + -3.88874081109201 * H1_12_1 + 0.423717114117874 * H1_13_1 + 0.665662700314412 * H1_14_1 + -2.3591922060589 * H1_15_1 + 2.93261096787831 * H1_16_1 + 2.90987110727057 * H1_17_1 + 2.15335159211696 * H1_18_1 + 0.3423452263582 * H1_2_1 + -0.33376344690799 * H1_3_1 + -0.312902900731034 * H1_4_1 + -0.085985362437798 * H1_5_1 + -0.0593332104651008 * H1_6_1 + 0.147201549636352 * H1_7_1 + 0.197394895500769 * H1_8_1 + 0.213280358742761 * H1_9_1)));
-
-    outdata["ProbabilityNotEnroll"] = 1 / (1 + Math.exp((-3.85213586897436 + 0.415234781022994 * H1_1_1 + 3.2778632559714 * H1_10_1 + -3.80861068360663 * H1_11_1 + -3.88874081109201 * H1_12_1 + 0.423717114117874 * H1_13_1 + 0.665662700314412 * H1_14_1 + -2.3591922060589 * H1_15_1 + 2.93261096787831 * H1_16_1 + 2.90987110727057 * H1_17_1 + 2.15335159211696 * H1_18_1 + 0.3423452263582 * H1_2_1 + -0.33376344690799 * H1_3_1 + -0.312902900731034 * H1_4_1 + -0.085985362437798 * H1_5_1 + -0.0593332104651008 * H1_6_1 + 0.147201549636352 * H1_7_1 + 0.197394895500769 * H1_8_1 + 0.213280358742761 * H1_9_1)));
-
-    _temp_12[0] = outdata["ProbabilityEnroll"];
-    _temp_12[1] = outdata["ProbabilityNotEnroll"];
-    _temp_11 = jmp.max_array(2, _temp_12);
-    switch (_temp_11) {
+    outdata["Probability( Clinical Trial enrollment: (Yes=1, No =2)=2 )_1"] = 1 / (1 + Math.exp((-0.273226016563953 + -1.80645679442871 * H1_1_1 + -0.778954706085276 * H1_2_1 + -1.89821124716246 * H1_3_1 + 0.31496750476159 * H1_4_1 + 0.561220256058835 * H1_5_1 + 0.530126799500854 * H1_6_1 + 1.18319822352502 * H1_7_1 + -1.66722221579876 * H1_8_1 + -1.82863696757146 * H1_9_1)));
+    _temp_11[0] = outdata["ProbabilityEnroll"];
+    _temp_11[1] = outdata["ProbabilityNotEnroll"];
+    _temp_10 = jmp.max_array(2, _temp_11);
+    switch (_temp_10) {
         case 0: {
             _temp_0 = 1;
         }
