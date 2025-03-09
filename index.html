@@ -603,7 +603,6 @@
              let race = document.getElementById("Race")?.value;
              console.log(`🎯 Retrieved Race Value: ${race}`);
              let ethnicity = document.getElementById("Ethnicity")?.value;
-             let minority = document.getElementById("Minority")?.value;
              let language = document.getElementById("PreferredLanguage")?.value;
              let insurance = document.getElementById("Insurance")?.value;
              let employment = document.getElementById("Employment")?.value;
@@ -613,17 +612,7 @@
  
              // ✅ FIX: Debugging checks
              console.log("🚀 Input values:", { agept, race, ethnicity, minority, language, insurance, employment, income, distance, kps });
- 
-             // 1️⃣ Minority Patients
-             if (["Asian", "Black", "Other", "Pacific"].includes(race) || ethnicity === "1" || minority === "1") {
-                 patientRecommendations.push({
-                     message: "Historically, minority patients have been underrepresented in clinical trials, limiting generalizability of scientific findings.",
-                     recommendations: [
-                         "Address underlying socioeconomic, healthcare access, and cultural barriers.",
-                         "Re-evaluate non-essential inclusion/exclusion criteria that may disproportionately exclude minority patients.",
-                         "Work to build trust with patients of all backgrounds over time, as a patient's trust in their physician is one of the strongest predictors of enrollment."
-                     ]
-                 });
+
              }
  
              // 2️⃣ Non-English Language
