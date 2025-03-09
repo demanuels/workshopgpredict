@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -361,8 +363,7 @@
                     <option value="Unknown">Unknown</option>
                 </select>
             </div>
-
-           <!-- Remove this section -->
+<!-- Remove this section -->
 <!--
 <div class="form-group">
     <label for="Minority">Minority Status:</label>
@@ -632,18 +633,14 @@
             let race = document.getElementById("Race")?.value;
             console.log(`🎯 Retrieved Race Value: ${race}`);
             let ethnicity = document.getElementById("Ethnicity")?.value;
-            
+            let minority = document.getElementById("Minority")?.value;
             let language = document.getElementById("PreferredLanguage")?.value;
             let insurance = document.getElementById("Insurance")?.value;
             let employment = document.getElementById("Employment")?.value;
             let income = parseFloat(document.getElementById("IncomeZip")?.value);
             let distance = parseFloat(document.getElementById("DistanceHospital")?.value);
             let kps = document.getElementById("KPSPostOp")?.value;
-// Determine minority status based on race and ethnicity
-    let minority = "1"; // Default to non-minority
-    if (["Asian", "Black", "Other", "Pacific"].includes(race) || ethnicity === "1") {
-        minority = "2"; // Minority
-    }
+
             // ✅ FIX: Debugging checks
             console.log("🚀 Input values:", { agept, race, ethnicity, minority, language, insurance, employment, income, distance, kps });
 
