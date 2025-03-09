@@ -362,14 +362,17 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="Minority">Minority Status:</label>
-                <select id="Minority" required>
-                    <option value="1">Minority</option>
-                    <option value="2">Non-minority</option>
-                    <option value="Unknown">Unknown</option>
-                </select>
-            </div>
+           <!-- Remove this section -->
+<!--
+<div class="form-group">
+    <label for="Minority">Minority Status:</label>
+    <select id="Minority" required>
+        <option value="1">Minority</option>
+        <option value="2">Non-minority</option>
+        <option value="Unknown">Unknown</option>
+    </select>
+</div>
+-->
 
             <div class="form-group">
                 <label for="PreferredLanguage">Preferred Language:</label>
@@ -611,205 +614,279 @@
             "Employment": { "1": 0.0131, "2": -0.0283, "3": 0.0354 }
         };
     
-        function calculateProbability() {
-        let indata = {};
-        let shapImpact = [];
-        let patientRecommendations = []; // ✅ FIXED: Ensure empty array before updating
+     function calculateProbability() {
+    let indata = {};
+    let shapImpact = [];
+    let patientRecommendations = [];
 
-        // ✅ FIX: Ensure model.js is properly loaded before running `score()`
-            if (typeof score !== "function") {
-                console.error("⚠️ ERROR: score() function is not defined. Check that model.js is properly linked.");
-                document.getElementById("resultText").innerText = "Error: Model not loaded.";
-                return; // Stop execution
-            }
+    // Ensure model.js is properly loaded before running `score()`
+    if (typeof score !== "function") {
+        console.error("⚠️ ERROR: score() function is not defined. Check that model.js is properly linked.");
+        document.getElementById("resultText").innerText = "Error: Model not loaded.";
+        return; // Stop execution
+    }
 
-        // ✅ FIX: Correctly retrieve input values
-            let agept = parseFloat(document.getElementById("AgeDiagnosis").value);
-            let race = document.getElementById("Race")?.value;
-            console.log(`🎯 Retrieved Race Value: ${race}`);
-            let ethnicity = document.getElementById("Ethnicity")?.value;
-            let minority = document.getElementById("Minority")?.value;
-            let language = document.getElementById("PreferredLanguage")?.value;
-            let insurance = document.getElementById("Insurance")?.value;
-            let employment = document.getElementById("Employment")?.value;
-            let income = parseFloat(document.getElementById("IncomeZip")?.value);
-            let distance = parseFloat(document.getElementById("DistanceHospital")?.value);
-            let kps = document.getElementById("KPSPostOp")?.value;
+    // Retrieve input values
+    let agept = parseFloat(document.getElementById("AgeDiagnosis").value);
+    let race = document.getElementById("Race")?.value;
+    let ethnicity = document.getElementById("Ethnicity")?.value;
+    let language = document.getElementById("PreferredLanguage")?.value;
+    let insurance = document.getElementById("Insurance")?.value;
+    let employment = document.getElementById("Employment")?.value;
+    let income = parseFloat(document.getElementById("IncomeZip")?.value);
+    let distance = parseFloat(document.getElementById("DistanceHospital")?.value);
+    let kps = document.getElementById("KPSPostOp")?.value;
 
-            // ✅ FIX: Debugging checks
-            console.log("🚀 Input values:", { agept, race, ethnicity, minority, language, insurance, employment, income, distance, kps });
+    // Determine minority status based on race and ethnicity
+    let minority = "2"; // Default to non-minority
+    if (["Asian", "Black", "Other", "Pacific"].includes(race) || ethnicity === "1") {
+        minority = "1"; // Minority
+    }
 
-            // 1️⃣ Minority Patients
-            if (["Asian", "Black", "Other", "Pacific"].includes(race) || ethnicity === "1" || minority === "1") {
-                patientRecommendations.push({
-                    message: "Historically, minority patients have been underrepresented in clinical trials, limiting generalizability of scientific findings.",
-                    recommendations: [
-                        "Address underlying socioeconomic, healthcare access, and cultural barriers.",
-                        "Re-evaluate non-essential inclusion/exclusion criteria that may disproportionately exclude minority patients.",
-                        "Work to build trust with patients of all backgrounds over time, as a patient's trust in their physician is one of the strongest predictors of enrollment."
-                    ]
-                });
-            }
+    // Debugging checks
+    console.log("🚀 Input values:", { agept, race, ethnicity, minority, language, insurance, employment, income, distance, kps });
 
-            // 2️⃣ Non-English Language
-            if (language === "2") {
-                patientRecommendations.push({
-                    message: "Patients with limited or moderate English proficiency are underrepresented in clinical trials.",
-                    recommendations: [
-                        "It is crucial to use medical interpreters or certified bilingual providers for all clinical trial screening discussions, which focus on nuanced treatments and challenging decisions."
-                    ]
-                });
-            }
+    // 1️⃣ Minority Patients
+    if (minority === "1") {
+        patientRecommendations.push({
+            message: "Historically, minority patients have been underrepresented in clinical trials, limiting generalizability of scientific findings.",
+            recommendations: [
+                "Address underlying socioeconomic, healthcare access, and cultural barriers.",
+                "Re-evaluate non-essential inclusion/exclusion criteria that may disproportionately exclude minority patients.",
+                "Work to build trust with patients of all backgrounds over time, as a patient's trust in their physician is one of the strongest predictors of enrollment."
+            ]
+        });
+    }
 
-            // 3️⃣ Financial Barriers
-            if (["2", "3", "5"].includes(insurance) || employment === "2" || income < 54000) {
-                patientRecommendations.push({
-                    message: "Under/uninsured, lower-income, and unemployed patients may not enroll due to hidden costs of enrollment (e.g., travel costs, lost wages, out-of-pocket costs).",
-                    recommendations: [
-                        "Collaborate with social work colleagues to ease financial burdens.",
-                        "Advocate that sponsors of clinical trials anticipate and help cover unexpected costs of participation.",
-                        "Create funding mechanisms for clinical trials that focus exclusively on cancer health disparities."
-                    ]
-                });
-            }
+    // 2️⃣ Non-English Language
+    if (language === "2") {
+        patientRecommendations.push({
+            message: "Patients with limited or moderate English proficiency are underrepresented in clinical trials.",
+            recommendations: [
+                "It is crucial to use medical interpreters or certified bilingual providers for all clinical trial screening discussions, which focus on nuanced treatments and challenging concepts."
+            ]
+        });
+    }
 
-            // 4️⃣ Distance from Hospital
-            if (distance >= 30) {
-                patientRecommendations.push({
-                    message: "Patients living farther from the hospital, such as rural patients, may struggle to enroll due to transportation time and costs.",
-                    recommendations: [
-                        "Offer remote/home-based visits, consolidated appointments, travel vouchers, and temporary local housing options whenever possible."
-                    ]
-                });
-            }
+    // 3️⃣ Financial Barriers
+    if (["2", "3", "5"].includes(insurance) || employment === "2" || income < 54000) {
+        patientRecommendations.push({
+            message: "Under/uninsured, lower-income, and unemployed patients may not enroll due to hidden costs of enrollment (e.g., travel costs, lost wages, out-of-pocket costs).",
+            recommendations: [
+                "Collaborate with social work colleagues to ease financial burdens.",
+                "Advocate that sponsors of clinical trials anticipate and help cover unexpected costs of participation.",
+                "Create funding mechanisms for clinical trials that focus exclusively on cancer health disparities."
+            ]
+        });
+    }
 
-            // 5️⃣ Functional Status (KPS Score)
-            if (kps === "<80") {
-                patientRecommendations.push({
-                    message: "Patients with lower functional status may face eligibility challenges.",
-                    recommendations: [
-                        "Evaluate functional status periodically to reassess trial eligibility."
-                    ]
-                });
-            }
+    // 4️⃣ Distance from Hospital
+    if (distance >= 30) {
+        patientRecommendations.push({
+            message: "Patients living farther from the hospital, such as rural patients, may struggle to enroll due to transportation time and costs.",
+            recommendations: [
+                "Offer remote/home-based visits, consolidated appointments, travel vouchers, and temporary local housing options whenever possible."
+            ]
+        });
+    }
 
-            // 6️⃣ Younger Patients
-            if (agept <= 50) {
-                patientRecommendations.push({
-                    message: "Younger patients may worry how participation would impact the family members they care for.",
-                    recommendations: [
-                        "Adopt a multidisciplinary approach to providing social/family support to facilitate participation."
-                    ]
-                });
-            }
+    // 5️⃣ Functional Status (KPS Score)
+    if (kps === "<80") {
+        patientRecommendations.push({
+            message: "Patients with lower functional status may face eligibility challenges.",
+            recommendations: [
+                "Evaluate functional status periodically to reassess trial eligibility."
+            ]
+        });
+    }
 
-            // 7️⃣ Older Patients
-            if (agept > 65) {
-                patientRecommendations.push({
-                    message: "A large percentage of clinical trials have age-based exclusion criteria.",
-                    recommendations: [
-                        "Discuss goals of care with all patients regardless of age.",
-                        "Advocate for functional status-based and goals of care-based eligibility criteria, rather than strict age-based cutoffs."
-                    ]
-                });
-            }
-        
-        // Correct categorical mappings
-        const categoricalMappings = {
-            "WHOGrade": { "2-3": 0, "4": 1 }, // WHO Grade mapping
-            "Race": { "White": 5, "Black": 1, "Hispanic": 3, "Asian": 0, "Pacific": 2, "Other": 3, "Unknown": 4 }, // Race mapping
-            "Chemotherapy": { "1": 2, "2": 0, "Unknown": 1 }, // TMZ Chemotherapy mapping
-            "Seizure": { "Yes": 2, "No": 1, "NA": 0 }, // Seizure mapping
-            "Insurance": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 }, // Insurance mapping
-            "TumorLobe": { "Brainstem": 0, "Cerebellum": 1, "Frontal": 2, "Multifocal": 3, "Occipital": 4, "Parietal": 5, "Temporal": 6, "Unknown": 7 }, // Tumor Lobe mapping
-            "Minority": { "1": 0, "2": 1, "Unknown": 2 }, // Minority mapping
-            "KPSPostOp": { "100": 3, "90": 2, "80": 1, "<80": 0, "NA": 4 }, // KPS Post-op mapping
-            "Ethnicity": { "1": 0, "2": 1, "Unknown": 2 }, // Ethnicity mapping
-            "Employment": { "1": 0, "2": 1, "3": 2, "Unknown": 3 }, // Employment mapping
-            "Sex": { "1": 1, "2": 2 } // Sex mapping
-        };
+    // 6️⃣ Younger Patients
+    if (agept <= 50) {
+        patientRecommendations.push({
+            message: "Younger patients may worry how participation would impact the family members they care for.",
+            recommendations: [
+                "Adopt a multidisciplinary approach to providing social/family support to facilitate participation."
+            ]
+        });
+    }
 
-        // Map input values to the correct model variable names
-        const variableMap = {
-            "AgeDiagnosis": "Age.at.Initial.Diagnosis",
-            "Employment": "Employed(Y=1, N=2, Retired=3) 2",
-            "Ethnicity": "Ethnicity Hispanic/Latino (Yes=1, No=2) 2",
-            "KPSPostOp": "KPS.post.op 3",
-            "Minority": "Minority (Yes=1, No=2) 2",
-            "TumorLobe": "New Tumor Lobe (updated chart review) 2 2 2",
-            "Insurance": "Reordered insurance at diagnosis 2 2",
-            "Seizure": "Seizure.preop 2",
-            "Sex": "Sex (M=1, F=2)",
-            "Chemotherapy": "TMZ anytime 2 2",
-            "Race": "Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2",
-            "WHOGrade": "WHO Grade 2 2"
-        };
+    // 7️⃣ Older Patients
+    if (agept > 65) {
+        patientRecommendations.push({
+            message: "A large percentage of clinical trials have age-based exclusion criteria.",
+            recommendations: [
+                "Discuss goals of care with all patients regardless of age.",
+                "Advocate for functional status-based and goals of care-based eligibility criteria, rather than strict age-based cutoffs."
+            ]
+        });
+    }
 
-        for (let shortName in variableMap) {
-            let fullName = variableMap[shortName];
-            let inputElement = document.getElementById(shortName);
-            if (inputElement) {
-                let value = inputElement.value.trim();
+    // Correct categorical mappings
+    const categoricalMappings = {
+        "WHOGrade": { "2-3": 0, "4": 1 }, // WHO Grade mapping
+        "Race": { "White": 5, "Black": 1, "Hispanic": 3, "Asian": 0, "Pacific": 2, "Other": 3, "Unknown": 4 }, // Race mapping
+        "Chemotherapy": { "1": 2, "2": 0, "Unknown": 1 }, // TMZ Chemotherapy mapping
+        "Seizure": { "Yes": 2, "No": 1, "NA": 0 }, // Seizure mapping
+        "Insurance": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 }, // Insurance mapping
+        "TumorLobe": { "Brainstem": 0, "Cerebellum": 1, "Frontal": 2, "Multifocal": 3, "Occipital": 4, "Parietal": 5, "Temporal": 6, "Unknown": 7 }, // Tumor Lobe mapping
+        "KPSPostOp": { "100": 3, "90": 2, "80": 1, "<80": 0, "NA": 4 }, // KPS Post-op mapping
+        "Ethnicity": { "1": 0, "2": 1, "Unknown": 2 }, // Ethnicity mapping
+        "Employment": { "1": 0, "2": 1, "3": 2, "Unknown": 3 }, // Employment mapping
+        "Sex": { "1": 1, "2": 2 } // Sex mapping
+    };
 
-                // Convert categorical variables before sending them to model.js
-                if (categoricalMappings[shortName]) {
-                    indata[fullName] = categoricalMappings[shortName][value] ?? -1;
-                } else {
-                    indata[fullName] = isNaN(value) || value === "" ? value : parseFloat(value);
-                }
-            }
-        }
+    // Map input values to the correct model variable names
+    const variableMap = {
+        "AgeDiagnosis": "Age.at.Initial.Diagnosis",
+        "Employment": "Employed(Y=1, N=2, Retired=3) 2",
+        "Ethnicity": "Ethnicity Hispanic/Latino (Yes=1, No=2) 2",
+        "KPSPostOp": "KPS.post.op 3",
+        "TumorLobe": "New Tumor Lobe (updated chart review) 2 2 2",
+        "Insurance": "Reordered insurance at diagnosis 2 2",
+        "Seizure": "Seizure.preop 2",
+        "Sex": "Sex (M=1, F=2)",
+        "Chemotherapy": "TMZ anytime 2 2",
+        "Race": "Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2",
+        "WHOGrade": "WHO Grade 2 2"
+    };
 
-        console.log("🚀 Input Data Sent to Model:", JSON.stringify(indata, null, 2));
+    for (let shortName in variableMap) {
+        let fullName = variableMap[shortName];
+        let inputElement = document.getElementById(shortName);
+        if (inputElement) {
+            let value = inputElement.value.trim();
 
-        if (typeof score === "function") {
-            let outdata = {};
-            score(indata, outdata);
-            console.log("📊 Output Data from Model:", outdata);
-
-            // Retrieve probability values
-            let probabilityYes = outdata["ProbabilityEnroll"];
-            let probabilityNo = outdata["ProbabilityNotEnroll"];
-
-            if (!isNaN(probabilityYes) && probabilityYes !== undefined) {
-                document.getElementById("resultText").innerText = `${(probabilityYes*100).toFixed(2)}%`;
-                document.getElementById("resultBox").style.display = "block";
+            // Convert categorical variables before sending them to model.js
+            if (categoricalMappings[shortName]) {
+                indata[fullName] = categoricalMappings[shortName][value] ?? -1;
             } else {
-                document.getElementById("resultText").innerText =
-                    "Error: Probability could not be calculated.";
-                console.error("⚠️ Probability is NaN or undefined. Check input processing.");
+                indata[fullName] = isNaN(value) || value === "" ? value : parseFloat(value);
             }
-        } else {
-            console.error("⚠️ score function is not defined. Make sure model.js is properly loaded.");
         }
+    }
 
-        let ageInput = document.getElementById("AgeDiagnosis").value;
-        let ages = parseFloat(ageInput);
-            
-        if (!isNaN(ages)) {
-                shapImpact.push({
-                    feature: `AgeDiagnosis=${ages}`,  // ✅ Now includes exact age value
-                    impact: shapValues["AgeDiagnosis"](ages) 
-                });
+    console.log("🚀 Input Data Sent to Model:", JSON.stringify(indata, null, 2));
+
+    if (typeof score === "function") {
+        let outdata = {};
+        score(indata, outdata);
+        console.log("📊 Output Data from Model:", outdata);
+
+        // Retrieve probability values
+        let probabilityYes = outdata["ProbabilityEnroll"];
+        let probabilityNo = outdata["ProbabilityNotEnroll"];
+
+        if (!isNaN(probabilityYes) && probabilityYes !== undefined) {
+            document.getElementById("resultText").innerText = `${(probabilityYes*100).toFixed(2)}%`;
+            document.getElementById("resultBox").style.display = "block";
+        } else {
+            document.getElementById("resultText").innerText =
+                "Error: Probability could not be calculated.";
+            console.error("⚠️ Probability is NaN or undefined. Check input processing.");
         }
-        // Define readable labels for easier interpretation
-        const readableLabels = {
-            "Ethnicity": { "1": "Hispanic/Latino", "2": "Non-Hispanic/Latino", "Unknown": "Unknown" },
-            "Sex": { "1": "Male", "2": "Female" },
-            "Insurance": { "1": "Private", "2": "Medi-cal/Medicaid", "3": "Medicare", "4": "Unknown", "5": "Self-pay" },
-            "Employment": { "1": "Employed", "2": "Unemployed", "3": "Retired", "Unknown": "Unknown" },
-            "Minority": { "1": "Minority", "2": "Non-minority", "Unknown": "Unknown" },
-            "WHOGrade": { "2-3": "Grade 2-3", "4": "Grade 4" },
-            "TumorLobe": { 
-                "Frontal": "Frontal", "Parietal": "Parietal", "Temporal": "Temporal", 
-                "Brainstem": "Brainstem, Insular, Basal Ganglia, or Thalamus",
-                "Multifocal": "Multifocal", "Occipital": "Occipital",
-                "Cerebellum": "Cerebellum", "Unknown": "Unknown"
-            },
-            "Seizure": { "Yes": "Yes", "No": "No", "NA": "Unknown" },
-            "KPSPostOp": { "100": "100", "90": "90", "80": "80", "<80": "Less than 80", "NA": "Unknown" },
-            "Chemotherapy": { "1": "Yes", "2": "No", "Unknown": "Unknown" }
-        };   
+    } else {
+        console.error("⚠️ score function is not defined. Make sure model.js is properly loaded.");
+    }
+
+    let ageInput = document.getElementById("AgeDiagnosis").value;
+    let ages = parseFloat(ageInput);
+
+    if (!isNaN(ages)) {
+            shapImpact.push({
+                feature: `AgeDiagnosis=${ages}`,  // Now includes exact age value
+                impact: shapValues["AgeDiagnosis"](ages) 
+            });
+    }
+    // Define readable labels for easier interpretation
+    const readableLabels = {
+        "Ethnicity": { "1": "Hispanic/Latino", "2": "Non-Hispanic/Latino", "Unknown": "Unknown" },
+        "Sex": { "1": "Male", "2": "Female" },
+        "Insurance": { "1": "Private", "2": "Medi-cal/Medicaid", "3": "Medicare", "4": "Unknown", "5": "Self-pay" },
+        "Employment": { "1": "Employed", "2": "Unemployed", "3": "Retired", "Unknown": "Unknown" },
+        "WHOGrade": { "2-3": "Grade 2-3", "4": "Grade 4" },
+        "TumorLobe": { 
+            "Frontal": "Frontal", "Parietal": "Parietal", "Temporal": "Temporal", 
+            "Brainstem": "Brainstem, Insular, Basal Ganglia, or Thalamus",
+            "Multifocal": "Multifocal", "Occipital": "Occipital",
+            "Cerebellum": "Cerebellum", "Unknown": "Unknown"
+        },
+        "Seizure": { "Yes": "Yes", "No": "No", "NA": "Unknown" },
+        "KPSPostOp": { "100": "100", "90": "90", "80": "80", "<80": "Less than 80", "NA": "Unknown" },
+        "Chemotherapy": { "1": "Yes", "2": "No", "Unknown": "Unknown" }
+    };   
+
+    const formattedLabels = {
+        "Race": {
+            "Pacific": "Native Hawaiian/Pacific Islander",
+            "Black": "Black/African American"
+        },
+        "TumorLobe": {
+            "Brainstem": "Brainstem/Insular/BasalGanglia/Thalamus"
+        }
+    };
+
+    document.querySelectorAll("select, input").forEach(el => {
+            let category = el.id;
+            let value = el.value;
+            indata[category] = value;
+
+     let displayValue = readableLabels[category] && readableLabels[category][value] 
+             ? readableLabels[category][value]  // Convert to readable label if available
+             : value; 
+
+    // Apply formatting if a readable display label exists
+    if (formattedLabels[category] && formattedLabels[category][value]) {
+        displayValue = formattedLabels[category][value];
+    }
+
+    let impactValue = shapValues[category] && shapValues[category][value] !== undefined 
+        ? shapValues[category][value] 
+        : "N/A"; 
+
+    console.log(`📝 Processing ${category}: User Input = ${displayValue}, Coded Impact = ${impactValue}`);
+
+            if (shapValues[category] && shapValues[category][value] !== undefined) {
+                shapImpact.push({
+                   feature: `${category}=${displayValue}`, // Displays as "Ethnicity=Hispanic/Latino"
+                    impact: shapValues[category][value]
+                });
+            }
+        console.log("📊 Full List of Computed SHAP Impact Factors:", shapImpact);
+    }); // Correct
+
+    shapImpact.sort((a, b) => Math.abs(b.impact) - Math.abs(a.impact));
+    console.log("📊 Full Sorted SHAP Impact Factors:", shapImpact);
+
+    // Ensure `Race` appears in sorted impact list
+    let raceImpact = shapImpact.find(factor => factor.feature.startsWith("Race="));
+    if (!raceImpact) {
+        console.warn("⚠️ Race is missing from the sorted impact list!");
+    }
+
+    let positiveImpact = shapImpact
+        .filter(d => d.impact > 0)
+        .slice(0, 2);
+    console.log("🔻 Sorted Positive Impact Factors:", positiveImpact);
+
+    // Fix: Sort negative impacts in descending order to show the most negative first
+    let negativeImpact = shapImpact
+        .filter(d => d.impact < 0)
+        .sort((a, b) => a.impact - b.impact) // Corrected sorting
+        .slice(0, 2);
+
+        console.log("✅ Final Sorted Positive Impact Factors:", positiveImpact);
+        console.log("❌ Final Sorted Negative Impact Factors:", negativeImpact);
+
+        updateImpactDisplay(positiveImpact, negativeImpact);
+        updateRecommendationDisplay(patientRecommendations);
+
+    }
+
+    function updateImpactDisplay(positiveImpact, negativeImpact) {
+        let impactTableBody = document.getElementById("impactTableBody");
+        impactTableBody.innerHTML = ""; // Clear existing content
+
+        let maxRows = Math.max(positiveImpact.length, negativeImpact.length);
 
         const formattedLabels = {
             "Race": {
@@ -820,118 +897,46 @@
                 "Brainstem": "Brainstem/Insular/BasalGanglia/Thalamus"
             }
         };
-        
-        document.querySelectorAll("select, input").forEach(el => {
-                let category = el.id;
-                let value = el.value;
-                indata[category] = value;
-            
-         let displayValue = readableLabels[category] && readableLabels[category][value] 
-                 ? readableLabels[category][value]  // ✅ Convert to readable label if available
-                 : value; 
 
-        // ✅ Apply formatting if a readable display label exists
-        if (formattedLabels[category] && formattedLabels[category][value]) {
-            displayValue = formattedLabels[category][value];
-        }
-            
-        let impactValue = shapValues[category] && shapValues[category][value] !== undefined 
-            ? shapValues[category][value] 
-            : "N/A"; 
-            
-        console.log(`📝 Processing ${category}: User Input = ${displayValue}, Coded Impact = ${impactValue}`);
-            
-                if (shapValues[category] && shapValues[category][value] !== undefined) {
-                    shapImpact.push({
-                       feature: `${category}=${displayValue}`, // ✅ Displays as "Ethnicity=Hispanic/Latino"
-                        impact: shapValues[category][value]
-                    });
-                }
-            console.log("📊 Full List of Computed SHAP Impact Factors:", shapImpact);
-        }); // ✅ Correct
+        for (let i = 0; i < maxRows; i++) {
+            let row = document.createElement("tr");
+            let increaseCell = document.createElement("td");
+            let decreaseCell = document.createElement("td");
 
-        shapImpact.sort((a, b) => Math.abs(b.impact) - Math.abs(a.impact));
-        console.log("📊 Full Sorted SHAP Impact Factors:", shapImpact);
-
-        // ✅ Ensure `Race` appears in sorted impact list
-        let raceImpact = shapImpact.find(factor => factor.feature.startsWith("Race="));
-        if (!raceImpact) {
-            console.warn("⚠️ Race is missing from the sorted impact list!");
-        }
-
-        let positiveImpact = shapImpact
-            .filter(d => d.impact > 0)
-            .slice(0, 2);
-        console.log("🔻 Sorted Positive Impact Factors:", positiveImpact);
-
-        // Fix: Sort negative impacts in descending order to show the most negative first
-        let negativeImpact = shapImpact
-            .filter(d => d.impact < 0)
-            .sort((a, b) => a.impact - b.impact) // Corrected sorting
-            .slice(0, 2);
-
-            console.log("✅ Final Sorted Positive Impact Factors:", positiveImpact);
-            console.log("❌ Final Sorted Negative Impact Factors:", negativeImpact);
-            
-            updateImpactDisplay(positiveImpact, negativeImpact);
-            updateRecommendationDisplay(patientRecommendations);
-            
-        }
-        function updateImpactDisplay(positiveImpact, negativeImpact) {
-            let impactTableBody = document.getElementById("impactTableBody");
-            impactTableBody.innerHTML = ""; // Clear existing content
-
-            let maxRows = Math.max(positiveImpact.length, negativeImpact.length);
-
-            const formattedLabels = {
-                "Race": {
-                    "Pacific": "Native Hawaiian/Pacific Islander",
-                    "Black": "Black/African American"
-                },
-                "TumorLobe": {
-                    "Brainstem": "Brainstem/Insular/BasalGanglia/Thalamus"
-                }
-            };
-
-            for (let i = 0; i < maxRows; i++) {
-                let row = document.createElement("tr");
-                let increaseCell = document.createElement("td");
-                let decreaseCell = document.createElement("td");
-
-                // ✅ Apply readable labels for positive impact factors
-                let featureDisplayPositive = positiveImpact[i] ? positiveImpact[i].feature : "No strong positive factors";
-                Object.keys(formattedLabels).forEach(category => {
-                    Object.keys(formattedLabels[category]).forEach(originalValue => {
-                        featureDisplayPositive = featureDisplayPositive.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
-                    });
+            // Apply readable labels for positive impact factors
+            let featureDisplayPositive = positiveImpact[i] ? positiveImpact[i].feature : "No strong positive factors";
+            Object.keys(formattedLabels).forEach(category => {
+                Object.keys(formattedLabels[category]).forEach(originalValue => {
+                    featureDisplayPositive = featureDisplayPositive.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
                 });
+            });
 
-                // ✅ Apply readable labels for negative impact factors
-                let featureDisplayNegative = negativeImpact[i] ? negativeImpact[i].feature : "No strong negative factors";
-                Object.keys(formattedLabels).forEach(category => {
-                    Object.keys(formattedLabels[category]).forEach(originalValue => {
-                        featureDisplayNegative = featureDisplayNegative.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
-                    });
+            // Apply readable labels for negative impact factors
+            let featureDisplayNegative = negativeImpact[i] ? negativeImpact[i].feature : "No strong negative factors";
+            Object.keys(formattedLabels).forEach(category => {
+                Object.keys(formattedLabels[category]).forEach(originalValue => {
+                    featureDisplayNegative = featureDisplayNegative.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
                 });
-                
-                
-                if (positiveImpact[i]) {
-                    increaseCell.innerHTML = `<span class="increase"><strong>${featureDisplayPositive}</strong>: +${(positiveImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
-                } else {
-                    increaseCell.innerHTML = `<span class="increase">No strong positive factors</span>`;
-                }
+            });
 
-                if (negativeImpact[i]) {
-                    decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: ${(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
-                } else {
-                    decreaseCell.innerHTML = `<span class="decrease">No strong negative factors</span>`;
-                }
 
-                row.appendChild(increaseCell);
-                row.appendChild(decreaseCell);
-                impactTableBody.appendChild(row);
+            if (positiveImpact[i]) {
+                increaseCell.innerHTML = `<span class="increase"><strong>${featureDisplayPositive}</strong>: +${(positiveImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
+            } else {
+                increaseCell.innerHTML = `<span class="increase">No strong positive factors</span>`;
             }
+
+            if (negativeImpact[i]) {
+                decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: ${(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
+            } else {
+                decreaseCell.innerHTML = `<span class="decrease">No strong negative factors</span>`;
+            }
+
+            row.appendChild(increaseCell);
+            row.appendChild(decreaseCell);
+            impactTableBody.appendChild(row);
         }
+         }
 
         function updateRecommendationDisplay(patientRecommendations) {
                 let recommendationTableBody = document.getElementById("patientRecommendationTableBody");
