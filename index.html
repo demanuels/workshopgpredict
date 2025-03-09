@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -596,7 +597,7 @@
              "Employment": { "1": 0.0131, "2": -0.0283, "3": 0.0354 }
          };
  
-    function calculateProbability() {
+      function calculateProbability() {
     let indata = {};
     let shapImpact = [];
     let patientRecommendations = [];
@@ -712,6 +713,7 @@
         "Seizure": { "Yes": 2, "No": 1, "NA": 0 }, // Seizure mapping
         "Insurance": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 }, // Insurance mapping
         "TumorLobe": { "Brainstem": 0, "Cerebellum": 1, "Frontal": 2, "Multifocal": 3, "Occipital": 4, "Parietal": 5, "Temporal": 6, "Unknown": 7 }, // Tumor Lobe mapping
+        "Minority": { "1": 0, "2": 1, "Unknown": 2 }, // Minority mapping
         "KPSPostOp": { "100": 3, "90": 2, "80": 1, "<80": 0, "NA": 4 }, // KPS Post-op mapping
         "Ethnicity": { "1": 0, "2": 1, "Unknown": 2 }, // Ethnicity mapping
         "Employment": { "1": 0, "2": 1, "3": 2, "Unknown": 3 }, // Employment mapping
@@ -947,7 +949,6 @@
                      recommendationTableBody.appendChild(row);
                  });
              }
- 
  
  
          function updateGeneralRecommendations() {
