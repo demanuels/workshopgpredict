@@ -120,6 +120,8 @@ var score = function(indata, outdata) {
     // Original name was: 'New Tumor Lobe (updated chart review) 2 2 2_asCode'
     var New_Tumor_Lobe_updated_chart_review_2_2_2_asCode;
     // Original name was: 'Minority (Yes=1, No=2) 2_asCode'
+    var Minority_Yes_1_No_2_2_asCode;
+    // Original name was: 'KPS.post.op 3_asCode'
     var KPS_post_op_3_asCode;
     // Original name was: 'Ethnicity Hispanic/Latino (Yes=1, No=2) 2_asCode'
     var Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode;
