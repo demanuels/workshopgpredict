@@ -475,16 +475,32 @@
             <p id="resultText"></p> <!-- ✅ Fixed: Probability is displayed inside the gray box -->
         </div>
         
+        <!-- General Recommendations -->
+      <div class="centered-container">
+    <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
+        General Recommendations for Trial Screening <span>▼</span>
+    </button>
+    <div id="generalRecommendations" class="toggle-content">
+        <div class="impact-title">General Recommendations for Trial Screening</div>
+        <table class="recommendation-table">
+            <thead>
+                <tr>
+                    <th style="color: #052049;">Screening Discussion Patterns</th>
+                    <th style="color: #C04C00;">Recommendations</th>
+                </tr>
+            </thead>
+            <tbody id="generalRecommendationTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
         <!-- Toggle Buttons -->
-        <div class="toggle-buttons">
+        <div class="toggle-buttons side-by-side"> <!-- Add side-by-side class -->
             <button class="toggle-button toggle-button-blue" onclick="toggleSection('impactSection')">
                 Patient-Specific Characteristics Influencing Enrollment <span>▼</span>
             </button>
             <button class="toggle-button toggle-button-orange" onclick="toggleSection('patientRecommendations')">
                 Patient-Specific Recommendations <span>▼</span>
-            </button>
-            <button class="toggle-button toggle-button-teal" onclick="toggleSection('generalRecommendations')">
-                General Recommendations for Trial Screening <span>▼</span>
             </button>
         </div>
 
