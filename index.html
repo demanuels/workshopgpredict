@@ -758,6 +758,12 @@
 
         if (typeof score === "function") {
             let outdata = {};
+         console.log("🚀 Input Data Sent to Model right before score:", JSON.stringify(indata, null, 2));
+         Object.keys(indata).forEach(key => {
+          if (indata[key] === undefined || indata[key] === "") {
+           console.warn(`⚠️ Missing input for: ${key}`);
+          }
+});
             score(indata, outdata);
             console.log("📊 Output Data from Model:", outdata);
 
