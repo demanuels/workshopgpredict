@@ -616,6 +616,10 @@
                 return; // Stop execution
             }
 
+         if (typeof score == "function") {
+                console.log("🚀 Score is recognized as a function!");
+            }
+
         // ✅ FIX: Correctly retrieve input values
             let agept = parseFloat(document.getElementById("AgeDiagnosis").value);
             let race = document.getElementById("Race")?.value;
