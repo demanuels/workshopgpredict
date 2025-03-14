@@ -144,13 +144,18 @@ var score = function(indata, outdata) {
     var _temp_9 = undefined;
     var _temp_10;
     var _temp_11 = [];
-
+	console.log("✅ model.js score() function is executing");
+console.log("🚀 Checking indata:", JSON.stringify(indata, null, 2));
+	
     if (indata["WHO Grade 2 2"] === 0)  {
         _temp_0 = 0;
     }
     else if (indata["WHO Grade 2 2"] === 1)  {
         _temp_0 = 1;
     }
+else {
+    console.warn("⚠️ WHO Grade 2 2 not recognized:", indata["WHO Grade 2 2"]);
+}
     WHO_Grade_2_2_asCode = _temp_0;
 	console.log("Printing redoced asCode versions of variables once passed to model.js", WHO_Grade_2_2_asCode);
 
