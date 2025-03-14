@@ -811,36 +811,37 @@
             }
         };
         
-        document.querySelectorAll("select, input").forEach(el => {
-                let category = el.id;
-                let value = el.value;
-                indata[category] = value;
-            
-         let displayValue = readableLabels[category] && readableLabels[category][value] 
-                 ? readableLabels[category][value]  // ✅ Convert to readable label if available
-                 : value; 
+        // Process SHAP impact factors
+    for (let category in variableMap) {
+        let fullName = variableMap[category];
+        let value = indata[fullName];
+        
+        let displayValue = readableLabels[category] && readableLabels[category][value] 
+            ? readableLabels[category][value] 
+            : value;
 
-        // ✅ Apply formatting if a readable display label exists
         if (formattedLabels[category] && formattedLabels[category][value]) {
             displayValue = formattedLabels[category][value];
         }
-         console.log("🚀 Input Data Sent to Model second time:", JSON.stringify(indata, null, 2));
-            
+
+        console.log("🚀 Input Data Sent to Model second time:", JSON.stringify(indata, null, 2));
+
         let impactValue = shapValues[category] && shapValues[category][value] !== undefined 
             ? shapValues[category][value] 
-            : "N/A"; 
-            
-        console.log(`📝 Processing ${category}: User Input = ${displayValue}, Coded Impact = ${impactValue}`);
-            
-                if (shapValues[category] && shapValues[category][value] !== undefined) {
-                    shapImpact.push({
-                       feature: `${category}=${displayValue}`, // ✅ Displays as "Ethnicity=Hispanic/Latino"
-                        impact: shapValues[category][value]
-                    });
-                }
-            console.log("📊 Full List of Computed SHAP Impact Factors:", shapImpact);
-        }); // ✅ Correct
+            : "N/A";
 
+        console.log(`📝 Processing ${category}: User Input = ${displayValue}, Coded Impact = ${impactValue}`);
+
+        if (shapValues[category] && shapValues[category][value] !== undefined) {
+            shapImpact.push({
+                feature: `${category}=${displayValue}`,
+                impact: shapValues[category][value]
+            });
+        }
+    }
+
+         
+        console.log("📊 Full List of Computed SHAP Impact Factors:", shapImpact);
         shapImpact.sort((a, b) => Math.abs(b.impact) - Math.abs(a.impact));
         console.log("📊 Full Sorted SHAP Impact Factors:", shapImpact);
 
