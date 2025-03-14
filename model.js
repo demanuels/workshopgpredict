@@ -157,7 +157,7 @@ else {
     console.warn("⚠️ WHO Grade 2 2 not recognized:", indata["WHO Grade 2 2"]);
 }
     WHO_Grade_2_2_asCode = _temp_0;
-	console.log("Printing redoced asCode versions of variables once passed to model.js", WHO_Grade_2_2_asCode);
+	console.log("Printing recoded asCode versions of variables once passed to model.js. WHO Grade:", WHO_Grade_2_2_asCode);
 
     if (indata["Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2"] === 0)  {
         _temp_0 = 0;
@@ -181,7 +181,7 @@ else {
         _temp_0 = 6;
     }
     Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode = _temp_0;
-	console.log("Printing redoced asCode versions of variables once passed to model.js", Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode);
+	console.log("Printing recoded asCode versions of variables once passed to model.js. Race:", Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode);
     if (indata["TMZ anytime 2 2"] === 0)  {
         _temp_0 = 0;
     }
@@ -192,6 +192,7 @@ else {
         _temp_0 = 2;
     }
     TMZ_anytime_2_2_asCode = _temp_0;
+	console.log("Printing recoded asCode versions of variables once passed to model.js. TMZ Chemo:", TMZ_anytime_2_2_asCode);
 
 	if (indata["Sex (M=1, F=2)"] === "1")  {
         _temp_0 = 0;
@@ -200,6 +201,7 @@ else {
         _temp_0 = 1;
     }
     Sex_M_1_F_2__asCode = _temp_0;
+	console.log("Printing recoded asCode versions of variables once passed to model.js. Sex:", Sex_M_1_F_2__asCode);
 
     if (indata["Seizure.preop 2"] === 0)  {
         _temp_0 = 0;
@@ -211,6 +213,7 @@ else {
         _temp_0 = 2;
     }
     Seizure_preop_2_asCode = _temp_0;
+	console.log("Printing recoded asCode versions of variables once passed to model.js. Seizure:", Seizure_preop_2_asCode);
 
     if (indata["Reordered insurance at diagnosis 2 2"] === 0)  {
         _temp_0 = 0;
@@ -228,6 +231,7 @@ else {
         _temp_0 = 4;
     }
     Reordered_insurance_at_diagnosis_2_2_asCode = _temp_0;
+	console.log("Printing recoded asCode versions of variables once passed to model.js. Insurance:", Reordered_insurance_at_diagnosis_2_2_asCode);
 
     if (indata["New Tumor Lobe (updated chart review) 2 2 2"] === 0)  {
         _temp_0 = 0;
@@ -254,6 +258,7 @@ else {
         _temp_0 = 7;
     }
     New_Tumor_Lobe_updated_chart_review_2_2_2_asCode = _temp_0;
+	console.log("Printing recoded asCode versions of variables once passed to model.js. Tumor lobe:", New_Tumor_Lobe_updated_chart_review_2_2_2_asCode);
 
     if (indata["KPS.post.op 3"] === 0)  {
         _temp_0 = 0;
@@ -271,7 +276,7 @@ else {
         _temp_0 = 4;
     }
     KPS_post_op_3_asCode = _temp_0;
-
+console.log("Printing recoded asCode versions of variables once passed to model.js. KPS:", KPS_post_op_3_asCode);
     if (indata["Ethnicity Hispanic/Latino (Yes=1, No=2) 2"] === 0)  {
         _temp_0 = 0;
     }
@@ -282,7 +287,7 @@ else {
         _temp_0 = 2;
     }
     Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode = _temp_0;
-
+console.log("Printing recoded asCode versions of variables once passed to model.js. Ethnicity:", Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode);
     if (indata["Employed(Y=1, N=2, Retired=3) 2"] === 0)  {
         _temp_0 = 0;
     }
@@ -296,6 +301,7 @@ else {
         _temp_0 = 3;
     }
 	Employed_Y_1_N_2_Retired_3_2_asCode = _temp_0;
+	console.log("Printing recoded asCode versions of variables once passed to model.js. Employment:", Employed_Y_1_N_2_Retired_3_2_asCode);
 	
 	if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
         _temp_0 = 0.0126647781310412;
@@ -424,7 +430,8 @@ else {
         _temp_9 = -0.1992599287063;
     }
     H1_1_1 = Math.tanh((-0.189498065814732 + -0.136904716750564 * Math.log(((-11.6322367884617 + indata["Age.at.Initial.Diagnosis"]) / (89.6435132764535 + -1 * indata["Age.at.Initial.Diagnosis"]))) + 0.5 * _temp_0 + 0.5 * _temp_1 + 0.5 * _temp_2 + 0.5 * _temp_3 + 0.5 * _temp_4 + 0.5 * _temp_5 + 0.5 * _temp_6 + 0.5 * _temp_7 + 0.5 * _temp_8 + 0.5 * _temp_9));
-
+console.log("Printing first H1_1_1 value to check if mathematical formula is actually working and that the formula is calculating", H1_1_1);
+	
     if (jmp.numeq(Employed_Y_1_N_2_Retired_3_2_asCode, 0))  {
         _temp_0 = 0.0237751112385;
     }
