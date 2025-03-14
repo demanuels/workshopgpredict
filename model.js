@@ -156,6 +156,7 @@ console.log("🚀 Checking indata:", JSON.stringify(indata, null, 2));
 else {
     console.warn("⚠️ WHO Grade 2 2 not recognized:", indata["WHO Grade 2 2"]);
 }
+	console.log("Printng temp 0 value right before reassigning to asCode for WHO grade:", _temp_0);
     WHO_Grade_2_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. WHO Grade:", WHO_Grade_2_2_asCode);
 
@@ -180,6 +181,7 @@ else {
     else if (indata["Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2"] === 6)  {
         _temp_0 = 6;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for race:", _temp_0);
     Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. Race:", Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode);
     if (indata["TMZ anytime 2 2"] === 0)  {
@@ -191,15 +193,17 @@ else {
     else if (indata["TMZ anytime 2 2"] === 2)  {
         _temp_0 = 2;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for Chemo:", _temp_0);
     TMZ_anytime_2_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. TMZ Chemo:", TMZ_anytime_2_2_asCode);
-
+console.log("Printng Sex value right before conversion to temp 0 when passing to model.js. Sex:", "Sex (M=1, F=2)");
 	if (indata["Sex (M=1, F=2)"] === "1")  {
         _temp_0 = 0;
     }
     else if (indata["Sex (M=1, F=2)"] === "2")  {
         _temp_0 = 1;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for Sex:", _temp_0);
     Sex_M_1_F_2__asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. Sex:", Sex_M_1_F_2__asCode);
 
@@ -212,6 +216,7 @@ else {
     else if (indata["Seizure.preop 2"] === 2)  {
         _temp_0 = 2;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for Seizure:", _temp_0);
     Seizure_preop_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. Seizure:", Seizure_preop_2_asCode);
 
@@ -230,6 +235,7 @@ else {
     else if (indata["Reordered insurance at diagnosis 2 2"] === 4)  {
         _temp_0 = 4;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for insurance:", _temp_0);
     Reordered_insurance_at_diagnosis_2_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. Insurance:", Reordered_insurance_at_diagnosis_2_2_asCode);
 
@@ -257,6 +263,7 @@ else {
     else if (indata["New Tumor Lobe (updated chart review) 2 2 2"] === 7)  {
         _temp_0 = 7;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for tumor lobe:", _temp_0);
     New_Tumor_Lobe_updated_chart_review_2_2_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. Tumor lobe:", New_Tumor_Lobe_updated_chart_review_2_2_2_asCode);
 
@@ -275,6 +282,7 @@ else {
     else if (indata["KPS.post.op 3"] === 4)  {
         _temp_0 = 4;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for KPS:", _temp_0);
     KPS_post_op_3_asCode = _temp_0;
 console.log("Printing recoded asCode versions of variables once passed to model.js. KPS:", KPS_post_op_3_asCode);
     if (indata["Ethnicity Hispanic/Latino (Yes=1, No=2) 2"] === 0)  {
@@ -286,6 +294,7 @@ console.log("Printing recoded asCode versions of variables once passed to model.
     else if (indata["Ethnicity Hispanic/Latino (Yes=1, No=2) 2"] === 2)  {
         _temp_0 = 2;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for Ethnicity:", _temp_0);
     Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode = _temp_0;
 console.log("Printing recoded asCode versions of variables once passed to model.js. Ethnicity:", Ethnicity_Hispanic_Latino_Yes_1_No_2_2_asCode);
     if (indata["Employed(Y=1, N=2, Retired=3) 2"] === 0)  {
@@ -300,6 +309,7 @@ console.log("Printing recoded asCode versions of variables once passed to model.
     else if (indata["Employed(Y=1, N=2, Retired=3) 2"] === 3)  {
         _temp_0 = 3;
     }
+	console.log("Printng temp 0 value right before reassigning to asCode for Employment:", _temp_0);
 	Employed_Y_1_N_2_Retired_3_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. Employment:", Employed_Y_1_N_2_Retired_3_2_asCode);
 	
