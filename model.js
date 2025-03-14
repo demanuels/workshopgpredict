@@ -152,6 +152,7 @@ var score = function(indata, outdata) {
         _temp_0 = 1;
     }
     WHO_Grade_2_2_asCode = _temp_0;
+	console.log("Printing redoced asCode versions of variables once passed to model.js", WHO_Grade_2_2_asCode);
 
     if (indata["Updated Race White, Black/African American, Hispanic/Latino, Asian/Pacific Islander, American Indian/Alaska Native 3 2"] === 0)  {
         _temp_0 = 0;
@@ -175,7 +176,7 @@ var score = function(indata, outdata) {
         _temp_0 = 6;
     }
     Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode = _temp_0;
-
+	console.log("Printing redoced asCode versions of variables once passed to model.js", Updated_Race_White_Black_African_American_Hispanic_Latino_Asian_Pacific_Islander_American_Indian_Alaska_Native_3_2_asCode);
     if (indata["TMZ anytime 2 2"] === 0)  {
         _temp_0 = 0;
     }
