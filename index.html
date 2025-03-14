@@ -821,35 +821,35 @@
             }
         };
         
-        // Process SHAP impact factors
-    for (let category in variableMap) {
-        let fullName = variableMap[category];
-        let value = indata[fullName];
-        
-        let displayValue = readableLabels[category] && readableLabels[category][value] 
-            ? readableLabels[category][value] 
-            : value;
+        document.querySelectorAll("select, input").forEach(el => {
+                let category = el.id;
+                let value = el.value;
+                indata[category] = value;
+           
+         let displayValue = readableLabels[category] && readableLabels[category][value]
+                 ? readableLabels[category][value]  // ✅ Convert to readable label if available
+                 : value;
 
+        // ✅ Apply formatting if a readable display label exists
         if (formattedLabels[category] && formattedLabels[category][value]) {
             displayValue = formattedLabels[category][value];
         }
-
-        let impactValue = shapValues[category] && shapValues[category][value] !== undefined 
-            ? shapValues[category][value] 
+           
+        let impactValue = shapValues[category] && shapValues[category][value] !== undefined
+            ? shapValues[category][value]
             : "N/A";
-
+           
         console.log(`📝 Processing ${category}: User Input = ${displayValue}, Coded Impact = ${impactValue}`);
+           
+                if (shapValues[category] && shapValues[category][value] !== undefined) {
+                    shapImpact.push({
+                       feature: `${category}=${displayValue}`, // ✅ Displays as "Ethnicity=Hispanic/Latino"
+                        impact: shapValues[category][value]
+                    });
+                }
+            console.log("📊 Full List of Computed SHAP Impact Factors:", shapImpact);
+        }); // ✅ Correct
 
-        if (shapValues[category] && shapValues[category][value] !== undefined) {
-            shapImpact.push({
-                feature: `${category}=${displayValue}`,
-                impact: shapValues[category][value]
-            });
-        }
-    }
-
-         
-        console.log("📊 Full List of Computed SHAP Impact Factors:", shapImpact);
         shapImpact.sort((a, b) => Math.abs(b.impact) - Math.abs(a.impact));
         console.log("📊 Full Sorted SHAP Impact Factors:", shapImpact);
 
@@ -872,10 +872,10 @@
 
             console.log("✅ Final Sorted Positive Impact Factors:", positiveImpact);
             console.log("❌ Final Sorted Negative Impact Factors:", negativeImpact);
-            
+           
             updateImpactDisplay(positiveImpact, negativeImpact);
             updateRecommendationDisplay(patientRecommendations);
-            
+           
         }
         function updateImpactDisplay(positiveImpact, negativeImpact) {
             let impactTableBody = document.getElementById("impactTableBody");
@@ -886,11 +886,11 @@
             const formattedLabels = {
                 "Race": {
                     "Pacific": "Native Hawaiian/Pacific Islander",
-                    "NativeAmerican": "American Indian/Alaska Native",
+                 "NativeAmerican": "American Indian/Alaska Native",
                     "Black": "Black/African American"
                 },
                 "TumorLobe": {
-                    "Brainstem": "Brainstem/Insular/Basal Ganglia/Thalamus"
+                    "Brainstem": "Brainstem/Insular/BasalGanglia/Thalamus"
                 }
             };
 
@@ -914,8 +914,8 @@
                         featureDisplayNegative = featureDisplayNegative.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
                     });
                 });
-                
-                
+               
+               
                 if (positiveImpact[i]) {
                     increaseCell.innerHTML = `<span class="increase"><strong>${featureDisplayPositive}</strong>: +${(positiveImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
                 } else {
