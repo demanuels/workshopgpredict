@@ -196,7 +196,7 @@ else {
 	console.log("Printng temp 0 value right before reassigning to asCode for Chemo:", _temp_0);
     TMZ_anytime_2_2_asCode = _temp_0;
 	console.log("Printing recoded asCode versions of variables once passed to model.js. TMZ Chemo:", TMZ_anytime_2_2_asCode);
-console.log("Printng Sex value right before conversion to temp 0 when passing to model.js. Sex:", "Sex (M=1, F=2)");
+console.log("Printng Sex value right before conversion to temp 0 when passing to model.js. Sex:", Sex (M=1, F=2));
 	if (indata["Sex (M=1, F=2)"] === "1")  {
         _temp_0 = 0;
     }
