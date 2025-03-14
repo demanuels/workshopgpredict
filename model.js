@@ -187,6 +187,14 @@ var score = function(indata, outdata) {
     }
     TMZ_anytime_2_2_asCode = _temp_0;
 
+	if (indata["Sex (M=1, F=2)"] === "1")  {
+        _temp_0 = 0;
+    }
+    else if (indata["Sex (M=1, F=2)"] === "2")  {
+        _temp_0 = 1;
+    }
+    Sex_M_1_F_2__asCode = _temp_0;
+
     if (indata["Seizure.preop 2"] === 0)  {
         _temp_0 = 0;
     }
