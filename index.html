@@ -750,7 +750,7 @@
             }
         }
 
-        console.log("🚀 Input Data Sent to Model:", JSON.stringify(indata, null, 2));
+        console.log("🚀 Input Data Sent to Model first time:", JSON.stringify(indata, null, 2));
 
         if (typeof score === "function") {
             let outdata = {};
@@ -824,6 +824,7 @@
         if (formattedLabels[category] && formattedLabels[category][value]) {
             displayValue = formattedLabels[category][value];
         }
+         console.log("🚀 Input Data Sent to Model second time:", JSON.stringify(indata, null, 2));
             
         let impactValue = shapValues[category] && shapValues[category][value] !== undefined 
             ? shapValues[category][value] 
