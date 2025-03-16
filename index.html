@@ -966,8 +966,11 @@ function formatImpactFeature(variable, value) {
         positiveImpact.forEach(item => {
             let row = document.createElement("tr");
             let cell = document.createElement("td");
-         // 🛠 FIX: Ensure `formatImpactFeature` is called correctly without "undefined"
-            let formattedFeature = formatImpactFeature(item.feature.split("=")[0], item.feature.split("=")[1] || "").replace(/=undefined$/, '');
+
+            // 🛠 FIX: Ensure `formatImpactFeature` handles single-word features without adding "="
+            let featureParts = item.feature.split("=");
+            let formattedFeature = formatImpactFeature(featureParts[0], featureParts[1] ? featureParts[1] : "").replace(/=$/, '');
+
             cell.innerHTML = `• <strong>${formattedFeature}</strong>: average increase of ${(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
             row.appendChild(cell);
             positiveImpactTableBody.appendChild(row);
@@ -985,8 +988,11 @@ function formatImpactFeature(variable, value) {
         negativeImpact.forEach(item => {
             let row = document.createElement("tr");
             let cell = document.createElement("td");
-         // 🛠 FIX: Ensure `formatImpactFeature` is called correctly without "undefined"
-            let formattedFeature = formatImpactFeature(item.feature.split("=")[0], item.feature.split("=")[1] || "").replace(/=undefined$/, '');
+
+            // 🛠 FIX: Ensure `formatImpactFeature` handles single-word features without adding "="
+            let featureParts = item.feature.split("=");
+            let formattedFeature = formatImpactFeature(featureParts[0], featureParts[1] ? featureParts[1] : "").replace(/=$/, '');
+
             cell.innerHTML = `• <strong>${formattedFeature}</strong>: average decrease of ${Math.abs(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
             row.appendChild(cell);
             negativeImpactTableBody.appendChild(row);
