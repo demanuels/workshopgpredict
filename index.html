@@ -785,13 +785,25 @@
 
         let ageInput = document.getElementById("AgeDiagnosis").value;
         let ages = parseFloat(ageInput);
-            
+            function getAgeCategory(ages) {
+    if (ages < 20) return "Being less than 20 years old at diagnosis";
+    if (ages < 30) return "Being 20-29 years old at diagnosis";
+    if (ages < 40) return "Being 30-39 years old at diagnosis";
+    if (ages < 50) return "Being 40-49 years old at diagnosis";
+    if (ages < 60) return "Being 50-59 years old at diagnosis";
+    if (ages < 70) return "Being 60-69 years old at diagnosis";
+    if (ages < 80) return "Being 70-79 years old at diagnosis";
+    return "Being 80 years old or older at diagnosis";
+}
         if (!isNaN(ages)) {
-                shapImpact.push({
-                    feature: `AgeDiagnosis=${ages}`,  // ✅ Now includes exact age value
-                    impact: shapValues["AgeDiagnosis"](ages) 
-                });
-        }
+    let ageCategory = getAgeCategory(ages);
+    let ageImpact = shapValues["AgeDiagnosis"](ages);  // Get SHAP impact value
+
+    shapImpact.push({
+        feature: ageCategory,  // ✅ Now uses readable age label
+        impact: ageImpact
+    });
+}
         // Define readable labels for easier interpretation
         const readableLabels = {
             "Ethnicity": { "1": "Hispanic/Latino", "2": "Non-Hispanic/Latino", "Unknown": "Unknown" },
@@ -843,7 +855,7 @@
            
                 if (shapValues[category] && shapValues[category][value] !== undefined) {
                     shapImpact.push({
-                       feature: `${category}=${displayValue}`, // ✅ Displays as "Ethnicity=Hispanic/Latino"
+                       feature: formatImpactFeature(category, value), // ✅ Converts into readable text
                         impact: shapValues[category][value]
                     });
                 }
@@ -852,12 +864,6 @@
 
         shapImpact.sort((a, b) => Math.abs(b.impact) - Math.abs(a.impact));
         console.log("📊 Full Sorted SHAP Impact Factors:", shapImpact);
-
-        // ✅ Ensure `Race` appears in sorted impact list
-        let raceImpact = shapImpact.find(factor => factor.feature.startsWith("Race="));
-        if (!raceImpact) {
-            console.warn("⚠️ Race is missing from the sorted impact list!");
-        }
 
         let positiveImpact = shapImpact
             .filter(d => d.impact > 0)
@@ -877,6 +883,70 @@
             updateRecommendationDisplay(patientRecommendations);
            
         }
+
+     // Mapping function to convert variable-value pairs into readable text
+function formatImpactFeature(variable, value) {
+    const mappings = {
+        "KPSPostOp": {
+            "100": "Post-operative KPS of 100:",
+            "90": "Post-operative KPS of 90:",
+            "80": "Post-operative KPS of 80:",
+            "<80": "Post-operative KPS of less than 80:"
+        },
+     "TumorLobe": {
+            "Frontal": "Frontal lobe tumor", 
+            "Parietal": "Parietal lobe tumor",
+            "Temporal": "Temporal lobe tumor", 
+             "Brainstem": "Tumor located in the brainstem, insula, basal ganglia, or thalamus",
+                "Multifocal": "Multifocal tumor location", 
+      "Occipital": "Occipital lobe tumor",
+                "Cerebellum": "Cerebellar tumor"
+        },
+        "Race": {
+            "White": "White race",
+            "Black": "Black/African American race",
+            "Asian": "Asian race",
+            "NativeAmerican": "American Indian/Alaska Native race",
+            "Pacific": "Native Hawaiian/Pacific Islander race"
+        },
+        "Ethnicity": {
+            "1": "Hispanic/Latino ethnicity",
+            "2": "Non-Hispanic/Latino ethnicity"
+        },
+        "Sex": {
+            "1": "Male sex",
+            "2": "Female sex"
+        },
+        "WHOGrade": {
+            "4": "WHO Grade 4 tumor:",
+            "2-3": "WHO Grade 2-3 tumor:"
+        },
+        "Chemotherapy": {
+            "1": "History of chemotherapy treatment:",
+            "2": "No history of chemotherapy treatment"
+        },
+        "Insurance": {
+            "1": "Private insurance",
+            "2": "Medicaid/Medi-cal insurance",
+            "3": "Medicare insurance",
+            "5": "No insurance/self-pay"
+        },
+        "Employment": {
+            "1": "Being employed",
+            "2": "Being unemployed",
+            "3": "Being retired"
+        },
+        "Seizure": {
+            "Yes": "Seizures at diagnosis:",
+            "No": "No seizures at diagnosis:"
+        }
+    };
+
+    // Return formatted string or fallback to the original value
+    return mappings[variable]?.[value] || `${variable}=${value}`;
+}
+
+     
         function updateImpactDisplay(positiveImpact, negativeImpact) {
             let impactTableBody = document.getElementById("impactTableBody");
             impactTableBody.innerHTML = ""; // Clear existing content
@@ -900,7 +970,9 @@
                 let decreaseCell = document.createElement("td");
 
                 // ✅ Apply readable labels for positive impact factors
-                let featureDisplayPositive = positiveImpact[i] ? positiveImpact[i].feature : "No strong positive factors";
+                let featureDisplayPositive = positiveImpact[i]
+    ? formatImpactFeature(...positiveImpact[i].feature.split("="))  // Apply formatting
+    : "No strong positive factors";
                 Object.keys(formattedLabels).forEach(category => {
                     Object.keys(formattedLabels[category]).forEach(originalValue => {
                         featureDisplayPositive = featureDisplayPositive.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
@@ -908,7 +980,9 @@
                 });
 
                 // ✅ Apply readable labels for negative impact factors
-                let featureDisplayNegative = negativeImpact[i] ? negativeImpact[i].feature : "No strong negative factors";
+                let featureDisplayNegative = negativeImpact[i]
+    ? formatImpactFeature(...negativeImpact[i].feature.split("="))  // Apply formatting
+    : "No strong negative factors";
                 Object.keys(formattedLabels).forEach(category => {
                     Object.keys(formattedLabels[category]).forEach(originalValue => {
                         featureDisplayNegative = featureDisplayNegative.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
