@@ -923,7 +923,7 @@
                 }
 
                 if (negativeImpact[i]) {
-                    decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: average decrease of ${(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}% in estimated enrollment probability</span>`;
+                    decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: average decrease of ${Math.abs(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}% in estimated enrollment probability</span>`;
                 } else {
                     decreaseCell.innerHTML = `<span class="decrease">No strong negative factors</span>`;
                 }
