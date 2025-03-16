@@ -125,19 +125,20 @@
              margin-top: 20px;
          }
  
-         /* General Recommendations Button (100% width) */
-         .toggle-button-teal {
-             width: 100%; /* Ensure it spans full width */
-             padding: 12px;
-             background-color: #007272;
-             color: white;
-             border: none;
-             border-radius: 5px;
-             cursor: pointer;
-             font-size: 1em;
-             font-weight: bold;
-             margin: 0 auto;
-         }
+         /* General Recommendations Button - Match Calculate Probability Button */
+.toggle-button-teal {
+    width: calc(100% - 40px); /* Match the width of the Calculate Probability button */
+    padding: 12px;
+    background-color: #007272;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 20px auto 0 auto; /* Center and add top margin */
+    display: block;
+}
  
          .toggle-button-teal:hover {
              background-color: #005555;
