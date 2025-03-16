@@ -507,14 +507,20 @@
         <div id="impactSection" class="toggle-content">
             <div class="impact-title">Patient-Specific Characteristics That Most Influence Enrollment Probability</div>
                 <table class="impact-table">
-                    <thead>
-                        <tr>
-                            <th style="color: #052049;">Factors Increasing Enrollment Probability</th>
-                            <th style="color: #C04C00;">Factors Decreasing Enrollment Probability</th>
-                        </tr>
-                    </thead>
-                    <tbody id="impactTableBody"></tbody>
-                </table>
+       <thead>
+        <tr>
+            <th style="background-color: #f5f5f5; color: #052049; text-align: left;">Factors Increasing Enrollment Probability</th>
+        </tr>
+    </thead>
+    <tbody id="positiveImpactTableBody"></tbody>
+
+    <thead>
+        <tr>
+            <th style="background-color: #f5f5f5; color: #C04C00; text-align: left;">Factors Decreasing Enrollment Probability</th>
+        </tr>
+    </thead>
+    <tbody id="negativeImpactTableBody"></tbody>
+</table>
         </div>
 
         <!-- Patient-Specific Recommendations -->
@@ -948,65 +954,47 @@ function formatImpactFeature(variable, value) {
 
      
         function updateImpactDisplay(positiveImpact, negativeImpact) {
-            let impactTableBody = document.getElementById("impactTableBody");
-            impactTableBody.innerHTML = ""; // Clear existing content
+    let positiveImpactTableBody = document.getElementById("positiveImpactTableBody");
+    let negativeImpactTableBody = document.getElementById("negativeImpactTableBody");
 
-            let maxRows = Math.max(positiveImpact.length, negativeImpact.length);
+    // Clear table contents before updating
+    positiveImpactTableBody.innerHTML = "";
+    negativeImpactTableBody.innerHTML = "";
 
-            const formattedLabels = {
-                "Race": {
-                    "Pacific": "Native Hawaiian/Pacific Islander",
-                 "NativeAmerican": "American Indian/Alaska Native",
-                    "Black": "Black/African American"
-                },
-                "TumorLobe": {
-                    "Brainstem": "Brainstem/Insular/BasalGanglia/Thalamus"
-                }
-            };
+    // Insert positive impact factors
+    if (positiveImpact.length > 0) {
+        positiveImpact.forEach(item => {
+            let row = document.createElement("tr");
+            let cell = document.createElement("td");
+            cell.innerHTML = `• <strong>${formatImpactFeature(...item.feature.split("="))}</strong>: average increase of ${(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
+            row.appendChild(cell);
+            positiveImpactTableBody.appendChild(row);
+        });
+    } else {
+        let row = document.createElement("tr");
+        let cell = document.createElement("td");
+        cell.innerText = "No strong positive factors";
+        row.appendChild(cell);
+        positiveImpactTableBody.appendChild(row);
+    }
 
-            for (let i = 0; i < maxRows; i++) {
-                let row = document.createElement("tr");
-                let increaseCell = document.createElement("td");
-                let decreaseCell = document.createElement("td");
-
-                // ✅ Apply readable labels for positive impact factors
-                let featureDisplayPositive = positiveImpact[i] 
-    ? formatImpactFeature(...positiveImpact[i].feature.split("=")).replace(/=undefined$/, '') 
-    : "No strong positive factors";
-                Object.keys(formattedLabels).forEach(category => {
-                    Object.keys(formattedLabels[category]).forEach(originalValue => {
-                        featureDisplayPositive = featureDisplayPositive.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
-                    });
-                });
-
-                // ✅ Apply readable labels for negative impact factors
-                let featureDisplayNegative = negativeImpact[i]
-    ? formatImpactFeature(...negativeImpact[i].feature.split("=")).replace(/=undefined$/, '') 
-    : "No strong negative factors";
-                Object.keys(formattedLabels).forEach(category => {
-                    Object.keys(formattedLabels[category]).forEach(originalValue => {
-                        featureDisplayNegative = featureDisplayNegative.replace(new RegExp(`=${originalValue}$`), `=${formattedLabels[category][originalValue]}`);
-                    });
-                });
-               
-               
-                if (positiveImpact[i]) {
-                    increaseCell.innerHTML = `<span class="increase"><strong>${featureDisplayPositive}</strong>: average increase of ${(positiveImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}% in estimated enrollment probability</span>`;
-                } else {
-                    increaseCell.innerHTML = `<span class="increase">No strong positive factors</span>`;
-                }
-
-                if (negativeImpact[i]) {
-                    decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: average decrease of ${Math.abs(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}% in estimated enrollment probability</span>`;
-                } else {
-                    decreaseCell.innerHTML = `<span class="decrease">No strong negative factors</span>`;
-                }
-
-                row.appendChild(increaseCell);
-                row.appendChild(decreaseCell);
-                impactTableBody.appendChild(row);
-            }
-        }
+    // Insert negative impact factors
+    if (negativeImpact.length > 0) {
+        negativeImpact.forEach(item => {
+            let row = document.createElement("tr");
+            let cell = document.createElement("td");
+            cell.innerHTML = `• <strong>${formatImpactFeature(...item.feature.split("="))}</strong>: average decrease of ${Math.abs(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
+            row.appendChild(cell);
+            negativeImpactTableBody.appendChild(row);
+        });
+    } else {
+        let row = document.createElement("tr");
+        let cell = document.createElement("td");
+        cell.innerText = "No strong negative factors";
+        row.appendChild(cell);
+        negativeImpactTableBody.appendChild(row);
+    }
+}
 
         function updateRecommendationDisplay(patientRecommendations) {
                 let recommendationTableBody = document.getElementById("patientRecommendationTableBody");
