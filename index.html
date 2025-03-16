@@ -943,7 +943,7 @@ function formatImpactFeature(variable, value) {
     };
 
     // Return formatted string or fallback to the original value
-    return mappings[variable]?.[value] || `${variable}=${value}`;
+    return mappings[variable]?.[value] ?? value ?? "Unknown factor";
 }
 
      
@@ -970,8 +970,8 @@ function formatImpactFeature(variable, value) {
                 let decreaseCell = document.createElement("td");
 
                 // ✅ Apply readable labels for positive impact factors
-                let featureDisplayPositive = positiveImpact[i]
-    ? formatImpactFeature(...positiveImpact[i].feature.split("="))  // Apply formatting
+                let featureDisplayPositive = positiveImpact[i] 
+    ? formatImpactFeature(...positiveImpact[i].feature.split("=")).replace(/=undefined$/, '') 
     : "No strong positive factors";
                 Object.keys(formattedLabels).forEach(category => {
                     Object.keys(formattedLabels[category]).forEach(originalValue => {
@@ -981,7 +981,7 @@ function formatImpactFeature(variable, value) {
 
                 // ✅ Apply readable labels for negative impact factors
                 let featureDisplayNegative = negativeImpact[i]
-    ? formatImpactFeature(...negativeImpact[i].feature.split("="))  // Apply formatting
+    ? formatImpactFeature(...negativeImpact[i].feature.split("=")).replace(/=undefined$/, '') 
     : "No strong negative factors";
                 Object.keys(formattedLabels).forEach(category => {
                     Object.keys(formattedLabels[category]).forEach(originalValue => {
