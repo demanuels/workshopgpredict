@@ -943,7 +943,7 @@ function formatImpactFeature(variable, value) {
     };
 
     // Return formatted string or fallback to the original value
-    return mappings[variable]?.[value] ?? value ?? "Unknown factor";
+    return mappings[variable]?.[value] || `${variable}=${value}`;
 }
 
      
