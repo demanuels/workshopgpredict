@@ -971,7 +971,7 @@ function formatImpactFeature(variable, value) {
             let featureParts = item.feature.split("=");
             let formattedFeature = formatImpactFeature(featureParts[0], featureParts[1] ? featureParts[1] : "").replace(/=$/, '');
 
-            cell.innerHTML = `• <strong>${formattedFeature}</strong>: average increase of ${(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
+            cell.innerHTML = `• <strong>${formattedFeature}</strong>: average increase of <strong>${(item.impact * 100).toFixed(2)}%</strong> in estimated enrollment probability`;
             row.appendChild(cell);
             positiveImpactTableBody.appendChild(row);
         });
@@ -993,7 +993,7 @@ function formatImpactFeature(variable, value) {
             let featureParts = item.feature.split("=");
             let formattedFeature = formatImpactFeature(featureParts[0], featureParts[1] ? featureParts[1] : "").replace(/=$/, '');
 
-            cell.innerHTML = `• <strong>${formattedFeature}</strong>: average decrease of ${Math.abs(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
+            cell.innerHTML = `• <span style="color: #C04C00;"><strong>${formattedFeature}</strong></span>: average decrease of <span style="color: #C04C00; font-weight: bold;">${Math.abs(item.impact * 100).toFixed(2)}%</span> in estimated enrollment probability`;
             row.appendChild(cell);
             negativeImpactTableBody.appendChild(row);
         });
