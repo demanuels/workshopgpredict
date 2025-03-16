@@ -917,13 +917,13 @@
                
                
                 if (positiveImpact[i]) {
-                    increaseCell.innerHTML = `<span class="increase"><strong>${featureDisplayPositive}</strong>: +${(positiveImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
+                    increaseCell.innerHTML = `<span class="increase"><strong>${featureDisplayPositive}</strong>: +${(positiveImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'} average increase in estimated enrollment probability%</span>`;
                 } else {
                     increaseCell.innerHTML = `<span class="increase">No strong positive factors</span>`;
                 }
 
                 if (negativeImpact[i]) {
-                    decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: ${(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'}%</span>`;
+                    decreaseCell.innerHTML = `<span class="decrease"><strong>${featureDisplayNegative}</strong>: ${(negativeImpact[i]?.impact * 100).toFixed(2) ?? 'N/A'} average decrease in estimated enrollment probability%</span>`;
                 } else {
                     decreaseCell.innerHTML = `<span class="decrease">No strong negative factors</span>`;
                 }
