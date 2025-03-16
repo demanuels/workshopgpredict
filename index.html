@@ -968,7 +968,7 @@ function formatImpactFeature(variable, value) {
             let cell = document.createElement("td");
          // 🛠 FIX: Ensure `formatImpactFeature` is called correctly without "undefined"
             let formattedFeature = formatImpactFeature(item.feature.split("=")[0], item.feature.split("=")[1] || "").replace(/=undefined$/, '');
-            cell.innerHTML = `• <strong>${formatImpactFeature(...item.feature.split("="))}</strong>: average increase of ${(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
+            cell.innerHTML = `• <strong>${formattedFeature}</strong>: average increase of ${(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
             row.appendChild(cell);
             positiveImpactTableBody.appendChild(row);
         });
@@ -987,7 +987,7 @@ function formatImpactFeature(variable, value) {
             let cell = document.createElement("td");
          // 🛠 FIX: Ensure `formatImpactFeature` is called correctly without "undefined"
             let formattedFeature = formatImpactFeature(item.feature.split("=")[0], item.feature.split("=")[1] || "").replace(/=undefined$/, '');
-            cell.innerHTML = `• <strong>${formatImpactFeature(...item.feature.split("="))}</strong>: average decrease of ${Math.abs(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
+            cell.innerHTML = `• <strong>${formattedFeature}</strong>: average decrease of ${Math.abs(item.impact * 100).toFixed(2)}% in estimated enrollment probability`;
             row.appendChild(cell);
             negativeImpactTableBody.appendChild(row);
         });
