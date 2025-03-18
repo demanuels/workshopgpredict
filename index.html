@@ -269,6 +269,32 @@
             visibility: visible;
             opacity: 1;
         }
+
+      /* Citations Button - UCSF Light Blue (Same as Calculate Probability Button) */
+.toggle-button-ucsf-light-blue {
+    background-color: #0076cf; /* UCSF Light Blue */
+}
+
+.toggle-button-ucsf-light-blue:hover {
+    background-color: #0056a4; /* Slightly Darker UCSF Blue */
+}
+
+/* Ensure citations list matches other content width */
+#citationsSection {
+    width: 95%; /* Same width as impact tables */
+    max-width: 95%;
+    text-align: left; /* Align text for readability */
+}
+
+#citationsList {
+    padding-left: 20px; /* Indent numbering */
+}
+
+#citationsList li {
+    margin-bottom: 10px; /* Space between citations */
+    font-size: 0.95em;
+    line-height: 1.5;
+}
  
      </style>
  </head>
@@ -417,6 +443,9 @@
                     <option value="Unknown">Unknown</option>
                 </select>
             </div>
+          <!-- Add this note at the bottom of the page -->
+<p>* These variables are not incorporated as predictors into the boosted neural network for probability calculations but may help guide recommendations to increase accrual.</p>
+    </div>
 
             <button type="button" onclick="calculateProbability()">Calculate Probability</button>
         </form>
@@ -495,10 +524,27 @@
         </table>
     </div>
 </div>
-      
-        <!-- Add this note at the bottom of the page -->
-<p>* These variables are not incorporated as predictors into the boosted neural network for probability calculations but may help guide recommendations to increase accrual.</p>
-    </div>
+
+<!-- Citations Toggle Button -->
+<button class="toggle-button toggle-button-ucsf-light-blue" onclick="toggleSection('citationsSection')">
+    References & Citations <span>▼</span>
+</button>
+
+<!-- Citations Section -->
+<div id="citationsSection" class="toggle-content">
+    <div class="impact-title">References & Citations</div>
+    <ol id="citationsList">
+        <li>Morshed RA, Reihl SJ, Molinaro AM, Kakaizada S, Young JS, Schulte JD, Butowski N, Taylor J, Bush NA, Aghi MK, Berger MS, Chang S, Clarke J, Hervey-Jumper SL. The influence of race and socioeconomic status on therapeutic clinical trial screening and enrollment. <i>J Neurooncol</i>. 2020 May;148(1):131-139. doi: 10.1007/s11060-020-03503-x. PMID: 32350780.</li>
+        <li>Oyer RA, Hurley P, Boehmer L, Bruinooge SS, Levit K, Barrett N, Benson A, Bernick LA, Byatt L, Charlot M, Crews J, DeLeon K, Fashoyin-Aje L, Garrett-Mayer E, Gralow JR, Green S, Guerra CE, Hamroun L, Hardy CM, Hempstead B, Jeames S, Mann M, Matin K, McCaskill-Stevens W, Merrill J, Nowakowski GS, Patel MI, Pressman A, Ramirez AG, Segura J, Segarra-Vasquez B, Hanley Williams J, Williams JE Jr, Winkfield KM, Yang ES, Zwicker V, Pierce LJ. Increasing Racial and Ethnic Diversity in Cancer Clinical Trials: An American Society of Clinical Oncology and Association of Community Cancer Centers Joint Research Statement. <i>J Clin Oncol</i>. 2022 Jul 1;40(19):2163-2171. doi: 10.1200/JCO.22.00754. PMID: 35588469.</li>
+        <li>Unger JM, Hershman DL, Till C, Minasian LM, Osarogiagbon RU, Fleury ME, Vaidya R. "When Offered to Participate": A Systematic Review and Meta-Analysis of Patient Agreement to Participate in Cancer Clinical Trials. <i>J Natl Cancer Inst</i>. 2021 Mar 1;113(3):244-257. doi: 10.1093/jnci/djaa155. PMID: 33022716; PMCID: PMC7936064.</li>
+        <li>Murthy VH, Krumholz HM, Gross CP. Participation in cancer clinical trials: race-, sex-, and age-based disparities. <i>JAMA</i>. 2004 Jun 9;291(22):2720-6. doi: 10.1001/jama.291.22.2720. PMID: 15187053.</li>
+        <li>Acuña-Villaorduña A, Baranda JC, Boehmer J, Fashoyin-Aje L, Gore SD. Equitable Access to Clinical Trials: How Do We Achieve It? <i>Am Soc Clin Oncol Educ Book</i>. 2023 May;43:e389838. doi: 10.1200/EDBK_389838. PMID: 37146264.</li>
+        <li>Borno HT, Zhang L, Siegel A, Chang E, Ryan CJ. At What Cost to Clinical Trial Enrollment? A Retrospective Study of Patient Travel Burden in Cancer Clinical Trials. <i>Oncologist</i>. 2018 Oct;23(10):1242-1249. doi: 10.1634/theoncologist.2017-0628. PMID: 29700209; PMCID: PMC6263122.</li>
+        <li>Hutchins LF, Unger JM, Crowley JJ, Coltman CA Jr, Albain KS. Underrepresentation of patients 65 years of age or older in cancer-treatment trials. <i>N Engl J Med</i>. 1999 Dec 30;341(27):2061-7. doi: 10.1056/NEJM199912303412706. PMID: 10615079.</li>
+        <li>Hurria A, Dale W, Mooney M, Rowland JH, Ballman KV, Cohen HJ, Muss HB, Schilsky RL, Ferrell B, Extermann M, Schmader KE, Mohile SG; Cancer and Aging Research Group. Designing therapeutic clinical trials for older and frail adults with cancer: U13 conference recommendations. <i>J Clin Oncol</i>. 2014 Aug 20;32(24):2587-94. doi: 10.1200/JCO.2013.55.0418. PMID: 25071116; PMCID: PMC4129504.</li>
+        <li>Scher KS, Hurria A. Under-representation of older adults in cancer registration trials: known problem, little progress. <i>J Clin Oncol</i>. 2012 Jun 10;30(17):2036-8. doi: 10.1200/JCO.2012.41.6727. PMID: 22547597.</li>
+    </ol>
+</div>
 
     <script src="jmp_score.js"></script> <!-- 📌 Ensures the model is correctly linked -->
     <script src="model.js"></script>
