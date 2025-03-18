@@ -118,101 +118,58 @@
              font-size: 1.2em; /* Same as heading */
          }
  
-         /* Toggle Buttons */
-         .toggle-buttons {
-             display: block; /* Change flex to block to avoid layout conflicts */
-             width: 100%; /* Ensure full width */
-             margin-top: 20px;
-         }
- 
-         /* General Recommendations Button - Match Calculate Probability Button */
+         /* Toggle Buttons - Stack vertically */
+.toggle-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center the buttons */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Ensure all toggle buttons match the width of "Calculate Probability" button */
+.toggle-button,
 .toggle-button-teal {
-    width: calc(100% - 40px); /* Match the width of the Calculate Probability button */
+    width: 100%; /* Full width */
+    max-width: 80%; /* Matches result box */
     padding: 12px;
-    background-color: #007272;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
     font-weight: bold;
-    margin: 20px auto 0 auto; /* Center and add top margin */
+    margin: 10px auto; /* Space between buttons */
     display: block;
 }
- 
-         .toggle-button-teal:hover {
-             background-color: #005555;
-         }
- 
-        /* Patient-Specific Buttons */
-        .toggle-buttons.side-by-side {
-            display: flex; /* Display buttons side by side */
-            justify-content: space-between; /* Space out the buttons */
-        }
- 
-         .toggle-button {
-             width: 48%; /* Each button takes up 48% of the container's width */
-             padding: 12px;
-             color: white;
-             border: none;
-             border-radius: 5px;
-             cursor: pointer;
-             font-size: 0.9em;
-             font-weight: bold;
-             display: flex;
-             align-items: center;
-             justify-content: space-between;
-         }
- 
-         .toggle-button span {
-             font-size: 1.2em;
-         }
- 
-         .toggle-button-blue {
-             background-color: #052049;
-         }
- 
-         .toggle-button-blue:hover {
-             background-color: #02152b;
-         }
- 
-         .toggle-button-orange {
-             background-color: #C04C00;
-         }
- 
-         .toggle-button-orange:hover {
-             background-color: #8a3700;
-         }
- 
-         .toggle-button-teal {
-             background-color: #007272;
-         }
- 
-         .toggle-button-teal:hover {
-             background-color: #005555;
-         }
- 
-         /* Hidden Sections */
-         .toggle-content {
-            width: 80%; /* Match the result box width */
-    max-width: 80%;  
-    margin: 0 auto; /* Center alignment */
-    padding: 15px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #dcdcdc;
-    box-sizing: border-box;
+
+/* General Recommendations Button */
+.toggle-button-teal {
+    background-color: #007272;
 }
-         /* Centering Container */
-        .centered-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        
-/* Ensure all toggle content sections have the same width */
+
+.toggle-button-teal:hover {
+    background-color: #005555;
+}
+
+/* Patient-Specific Buttons */
+.toggle-button-blue {
+    background-color: #052049;
+}
+
+.toggle-button-blue:hover {
+    background-color: #02152b;
+}
+
+.toggle-button-orange {
+    background-color: #C04C00;
+}
+
+.toggle-button-orange:hover {
+    background-color: #8a3700;
+}
+ 
+         /* Ensure all toggle content sections (tables) match the result box width */
 .toggle-content {
     width: 80%; /* Match the result box width */
     max-width: 80%;  
@@ -223,6 +180,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border: 2px solid #dcdcdc;
     box-sizing: border-box;
+    display: none; /* Hide by default */
 }
          }
          /* Headings */
@@ -547,9 +505,13 @@
 
     <script>
         function toggleSection(sectionId) {
-            var section = document.getElementById(sectionId);
-            section.style.display = section.style.display === "block" ? "none" : "block";
-        }
+    var section = document.getElementById(sectionId);
+    if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block"; // Show section
+    } else {
+        section.style.display = "none"; // Hide section
+    }
+}
     </script>
     
     <script>
