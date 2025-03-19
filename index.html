@@ -814,8 +814,8 @@ input.error {
             console.error("⚠️ score function is not defined. Make sure model.js is properly loaded.");
         }
 
-        let ageInput = document.getElementById("AgeDiagnosis").value;
-        let ages = parseFloat(ageInput);
+        
+        let ages = parseFloat(ageValue);
             function getAgeCategory(ages) {
     if (ages < 20) return "Being less than 20 years old at diagnosis";
     if (ages < 30) return "Being 20-29 years old at diagnosis";
