@@ -75,6 +75,20 @@
              background: #fafafa;
              box-sizing: border-box; /* Ensures same width */
          }
+
+      /* 🔴 Highlight Age Input Field if Invalid */
+input.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* 🔴 Error Message for Missing Age */
+#error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 10px;
+    display: none; /* Initially hidden */
+}
  
          /* Calculate Probability Button - UCSF Light Blue */
          button {
@@ -448,6 +462,7 @@
     </div>
 
             <button type="button" onclick="calculateProbability()">Calculate Probability</button>
+<p id="error-message">Please input the patient's age at diagnosis in the highlighted field to calculate the estimated enrollment probability.</p>
         </form>
 
         <h4 id="shapImpact"></h4>
@@ -607,7 +622,21 @@
         };
     
         function calculateProbability() {
-        let indata = {};
+        let ageInput = document.getElementById("AgeDiagnosis");
+    let ageValue = ageInput.value.trim();
+    let errorMessage = document.getElementById("error-message");
+
+    // 🔴 If Age is empty or invalid, show error
+    if (ageValue === "" || isNaN(ageValue) || parseFloat(ageValue) <= 0) {
+        ageInput.classList.add("error"); // Highlight in red
+        errorMessage.style.display = "block"; // Show error message
+        return; // Stop execution
+    } else {
+        ageInput.classList.remove("error"); // Remove red highlight
+        errorMessage.style.display = "none"; // Hide error message
+    }
+         
+         let indata = {};
         let shapImpact = [];
         let patientRecommendations = []; // ✅ FIXED: Ensure empty array before updating
 
