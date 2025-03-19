@@ -391,16 +391,15 @@ input.error {
             </div>
 
             <div class="form-group">
-                <label for="IncomeZip">Neighborhood Median Household Income by Patient Zip Code ($):</label>
-                <input type="number" id="IncomeZip" required>
-
-             <p style="color: #C04C00; font-weight: bold; margin-top: 5px;">
-        Median household income by ZIP code data can be found 
-        <a href="https://demanuels.github.io/incomeworkshop/" target="_blank" style="color: #007272; text-decoration: underline; font-weight: bold;">
-            here
-        </a>.
-    </p>
-            </div>
+    <label for="IncomeZip">
+        Neighborhood Median Household Income by Patient Zip Code ($)
+        <a href="https://demanuels.github.io/incomeworkshop/" target="_blank" 
+           style="color: #C04C00; font-weight: bold; text-decoration: underline;">
+            [income data linked here]
+        </a>: *
+    </label>
+    <input type="number" id="IncomeZip" required>
+</div>
 
             <div class="form-group">
                 <label for="DistanceHospital">Driving Distance from Patient's Home to Hospital (miles): *</label>
