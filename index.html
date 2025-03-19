@@ -676,11 +676,11 @@ input.error {
             // 1️⃣ Minority Patients
             if (["Asian", "Black", "Other", "NativeAmerican", "Pacific"].includes(race) || ethnicity === "1") {
                 patientRecommendations.push({
-                    message: "Historically, minority patients have been underrepresented in clinical trials, limiting generalizability of scientific findings.",
+                    message: "Historically, minority patients have been underrepresented in clinical trials, limiting the generalizability of scientific findings.<4-6>",
                     recommendations: [
-                        "Address underlying socioeconomic, healthcare access, and cultural barriers.",
-                        "Re-evaluate non-essential inclusion/exclusion criteria that may disproportionately exclude minority patients.",
-                        "Work to build trust with patients of all backgrounds over time, as a patient's trust in their physician is one of the strongest predictors of enrollment."
+                        "Address underlying socioeconomic, healthcare access, and cultural barriers.<2-3>",
+                        "Re-evaluate non-essential inclusion/exclusion criteria that may disproportionately exclude minority patients.<3,7>",
+                        "Work to build trust with patients of all backgrounds over time, as a patient's trust in their physician is key to facilitating enrollment.<2>"
                     ]
                 });
             }
@@ -688,9 +688,9 @@ input.error {
             // 2️⃣ Non-English Language
             if (language === "2") {
                 patientRecommendations.push({
-                    message: "Patients with limited or moderate English proficiency are underrepresented in clinical trials.",
+                    message: "Patients with limited or moderate English proficiency are underrepresented in clinical trials.<8>",
                     recommendations: [
-                        "It is crucial to use medical interpreters or certified bilingual providers for all clinical trial screening discussions, which focus on nuanced treatments and challenging decisions."
+                        "It is crucial to translate all study materials and use medical interpreters or certified bilingual providers for all clinical trial screening discussions, which focus on nuanced treatments and challenging decisions.<8>"
                     ]
                 });
             }
@@ -698,11 +698,11 @@ input.error {
             // 3️⃣ Financial Barriers
             if (["2", "3", "5"].includes(insurance) || employment === "2" || income < 54000) {
                 patientRecommendations.push({
-                    message: "Under/uninsured, lower-income, and unemployed patients may not enroll due to hidden costs of enrollment (e.g., travel costs, lost wages, out-of-pocket costs).",
+                    message: "Under/uninsured, lower-income, and unemployed patients may not enroll due to hidden costs of enrollment (e.g., travel costs, lost wages, out-of-pocket costs).<2>",
                     recommendations: [
                         "Collaborate with social work colleagues to ease financial burdens.",
-                        "Advocate that sponsors of clinical trials anticipate and help cover unexpected costs of participation.",
-                        "Create funding mechanisms for clinical trials that focus exclusively on cancer health disparities."
+                        "Advocate for sponsors of clinical trials to establish financial reimbursement programs to anticipate and help cover unexpected costs of participation.<2,9>",
+                        "Create targeted funding mechanisms for clinical trials that focus exclusively on cancer health disparities.<2-3>"
                     ]
                 });
             }
@@ -710,9 +710,9 @@ input.error {
             // 4️⃣ Distance from Hospital
             if (distance >= 30) {
                 patientRecommendations.push({
-                    message: "Patients living farther from the hospital, such as rural patients, may struggle to enroll due to transportation time and costs.",
+                    message: "Patients living farther from the hospital, such as rural patients, may struggle to enroll due to transportation time and costs.<10-11>",
                     recommendations: [
-                        "Offer remote/home-based visits, consolidated appointments, travel vouchers, and temporary local housing options whenever possible."
+                        "Offer remote/home-based visits, consolidated appointments, travel vouchers, and temporary local housing options whenever possible.<6,9-10>"
                     ]
                 });
             }
@@ -720,19 +720,9 @@ input.error {
             // 5️⃣ Functional Status (KPS Score)
             if (kps === "<80") {
                 patientRecommendations.push({
-                    message: "Patients with lower functional status may face eligibility challenges.",
+                    message: "Patients with lower functional status may face eligibility challenges.<12-13>",
                     recommendations: [
                         "Evaluate functional status periodically to reassess trial eligibility."
-                    ]
-                });
-            }
-
-            // 6️⃣ Younger Patients
-            if (agept <= 50) {
-                patientRecommendations.push({
-                    message: "Younger patients may worry how participation would impact the family members they care for.",
-                    recommendations: [
-                        "Adopt a multidisciplinary approach to providing social/family support to facilitate participation."
                     ]
                 });
             }
@@ -740,10 +730,10 @@ input.error {
             // 7️⃣ Older Patients
             if (agept > 65) {
                 patientRecommendations.push({
-                    message: "A large percentage of clinical trials have age-based exclusion criteria.",
+                    message: "A large percentage of clinical trials have age-based exclusion criteria.<14-15>",
                     recommendations: [
                         "Discuss goals of care with all patients regardless of age.",
-                        "Advocate for functional status-based and goals of care-based eligibility criteria, rather than strict age-based cutoffs."
+                        "Advocate for functional status-based and goals of care-based eligibility criteria, rather than strict age-based cutoffs.<16>"
                     ]
                 });
             }
@@ -1070,8 +1060,8 @@ function formatImpactFeature(variable, value) {
 
             const generalRecommendations = [
                 {
-                    pattern: "In a recent study of adult glioma patients, only 43-49% were screened for a clinical trial.",
-                    recommendation: "Adopt a 'just ask' policy for clinical trial discussions, asking all patients who might be eligible about their enrollment interest."
+                    pattern: "In a recent study of adult glioma patients, only 43-49% were screened for a clinical trial.<1>]",
+                    recommendation: "Adopt a 'just ask' policy for clinical trial discussions, asking all patients who might be eligible about their enrollment interest.<2-3>"
                 },
                 {
                     pattern: "In a recent study, the odds of trial enrollment increased in a dose-dependent fashion with the numbers of trials discussed during screening.",
@@ -1083,8 +1073,8 @@ function formatImpactFeature(variable, value) {
                     
                 },
                 {
-                    pattern: "Individual patients face unique challenges to and motivations for trial enrollment.",
-                    recommendation: "Use a patient-centered and multidisciplinary approach to understand and address enrollment barriers."
+                    pattern: "Individual patients face unique challenges to and motivations for trial enrollment.<2-3>",
+                    recommendation: "Use a patient-centered and multidisciplinary approach to understand and address enrollment barriers.<2-3>"
                 }
             ];
 
